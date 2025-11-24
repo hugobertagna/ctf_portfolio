@@ -15,17 +15,16 @@ nav:
       - 'Intro Nmap': tryhackme/junior/nmap.md
 
   - Cours-TP:
-      - Cybersécurité: 
-          # Le dossier est dans "rootme" d'après ton tree
-          - 'Notions de base': rootme\cybersecurite\notions_de_base.md
-          - 'TD 1 - Ingénierie sociale': rootme\cybersecurite\TD_Social_Engineering.md
+      - Cybersécurité:
+          # Le chemin commence par le nom du dossier dans "docs"
+          - 'Notions de base': cours-TP/cybersecurite/notions_de_base.md
+          - 'TD 1 - Ingénierie sociale': cours-TP/cybersecurite/TD_Social_Engineering.md
       - 'C System':
-          # CORRECTION ICI : "rootme/C_Systems/" + respect des majuscules
-          # Je pars du principe que le fichier s'appelle comme le dossier (ex: tp1/tp1.md)
-          - 'TP_1 - Apache': rootme/C_Systems/tp1/tp1.md
-          - 'TP_2 - MySQL / MariaDB': rootme/C_Systems/tp2/tp2.md
-          - 'TP_3 - Docker': rootme/C_Systems/tp3/tp3.md
-          - 'TP_A - Gestion des processus': rootme/C_Systems/tpa/tpa.md
-          - 'TP_B - Communication IPC': rootme/C_Systems/tpb/tpb.md
-          - 'TP_C - Communication IPC II': rootme/C_Systems/tpc/tpc.md
-          - 'TP_D - Fichiers et Périphériques': rootme/C_Systems/tpd/tpd.md
+          # Correction du chemin : on remplace "rootme" par "cours-TP"
+          - 'TP_1 - Apache': cours-TP/C_Systems/tp1/tp1.md
+          - 'TP_2 - MySQL / MariaDB': cours-TP/C_Systems/tp2/tp2.md
+          - 'TP_3 - Docker': cours-TP/C_Systems/tp3/tp3.md
+          - 'TP_A - Gestion des processus': cours-TP/C_Systems/tpa/tpa.md
+          - 'TP_B - Communication IPC': cours-TP/C_Systems/tpb/tpb.md
+          - 'TP_C - Communication IPC II': cours-TP/C_Systems/tpc/tpc.md
+          - 'TP_D - Fichiers et Périphériques': cours-TP/C_Systems/tpd/tpd.md

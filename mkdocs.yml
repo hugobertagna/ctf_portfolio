@@ -50,7 +50,7 @@ nav:
 
   - 🌐 TryHackMe:
       - 'WebHacking':
-          - '📜 a': tryhackme/WebHacking/a.md
+          - '📜 Pickle Rick': tryhackme/WebHacking/PickleRick.md
 
   - '📗 Cours et TP':
       - Cybersécurité:

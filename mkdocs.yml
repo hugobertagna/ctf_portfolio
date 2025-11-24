@@ -14,8 +14,9 @@ theme:
 nav:
   - Accueil: index.md
   - Root-Me:
-      - 'Challenge 1 : HTML': rootme/challenge1.md
-      - 'Challenge 2 : Javascript': rootme/challenge2.md
+    - 'Programmation': 
+        - 'Challenge 1 : TCP - Retour au collège': rootme/Programmation/TCP-RetourAuCollege.md
+        - 'Challenge 2 : TCP - Chaîne encodée': rootme/Programmation/TCP-ChaineEncodee.md
   - TryHackMe:
       - 'Intro Nmap': tryhackme/junior/nmap.md
 

@@ -6,10 +6,10 @@ Si vous souhaitez découvrir l'informatique et plus particulièrement la cybers�
 
 ## Les plateformes que j'utilise
 
-* https://www.root-me.org/
-* https://tryhackme.com
+* [Root-Me](https://www.root-me.org/)
+* [TryHackMe](https://tryhackme.com)
 
 ## Mes profils
 
-* **ROOT-ME :** https://www.root-me.org/hgoods?lang=fr#c35ebe3bd7ff2b5738045e98c8d64e0c
-* **TryHackMe :** https://tryhackme.com/p/hugo.bertagna
+* **ROOT-ME :** [Voir mon profil](https://www.root-me.org/hgoods?lang=fr#c35ebe3bd7ff2b5738045e98c8d64e0c)
+* **TryHackMe :** [Voir mon profil](https://tryhackme.com/p/hugo.bertagna)

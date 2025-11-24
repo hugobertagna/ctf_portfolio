@@ -1,16 +1,69 @@
-site_name: Hugo's website
+site_name: Hugo's Cyber Garden
 site_url: https://github.com/hugobertagna/ctf_portfolio
+repo_url: https://github.com/hugobertagna/ctf_portfolio
+repo_name: hugobertagna/ctf_portfolio
 
 theme:
   name: material
-  palette:
-    scheme: slate # Mode sombre
-    primary: indigo
+  language: fr
+  # Logo : mets ton image dans docs/assets/logo.png ou utilise une icone
+  logo: assets/logo.png 
+  favicon: assets/favicon.png
+  
   features:
-    - navigation.expand # Ouvre les dossiers automatiquement
-    - content.code.copy # Bouton copier pour le code
+    - navigation.tabs # Onglets en haut de page (très pro)
+    - navigation.sections
+    - navigation.expand
+    - navigation.top # Bouton "Retour en haut"
+    - content.code.copy # Bouton copier
+    - search.suggest # Barre de recherche intelligente
+    - search.highlight
 
-# C'est ICI que se fait la liaison avec tes .md
+  palette:
+    # Mode Sombre (par défaut)
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: cyan 
+      toggle:
+        icon: material/weather-night
+        name: Passer au mode clair
+
+    # Mode Clair
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: Passer au mode sombre
+
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+# Liens en bas de page
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/hugobertagna
+    - icon: simple/root-me
+      link: https://www.root-me.org/hgoods
+    - icon: simple/tryhackme
+      link: https://tryhackme.com/p/hugo.bertagna
+
+markdown_extensions:
+  - admonition # Pour faire des boites colorées (!!! info)
+  - pymdownx.details # Pour pouvoir plier/déplier les boites
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - attr_list # Pour centrer les images ou changer leur taille
+
+# Ta navigation (Je l'ai gardée telle quelle)
 nav:
   - Accueil: index.md
   - Root-Me:
@@ -33,9 +86,3 @@ nav:
           - 'TP_B - Communication Inter Processus': cours/csystem/tpb/tpb.md
           - 'TP_C - Communication Inter Processus II': cours/csystem/tpc/tpc.md
           - 'TP_D - Les Fichiers et Périphériques': cours/csystem/tpd/tpd.md
-
-markdown_extensions:
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.superfences
-  - admonition

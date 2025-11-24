@@ -48,7 +48,7 @@ nav:
 
   - TryHackMe:
       - 'WebHacking':
-          - 'Intro Nmap': tryhackme/WebHacking/a.md
+          - 'a': tryhackme/WebHacking/a.md
 
   - 'Cours et TP':
       - Cybersécurité:

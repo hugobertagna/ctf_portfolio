@@ -10,7 +10,7 @@
 
 ---
 
-## 1. La Commande "Royale" (CTF) 👑
+## 1. La Commande "Royale" (CTF) 
 
 Si tu ne dois retenir qu'une seule commande pour tes challenges Root-Me ou TryHackMe, c'est celle-ci :
 

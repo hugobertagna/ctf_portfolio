@@ -9,7 +9,7 @@ On commence avec un scan :
 ![](img/2025-11-24-21-15-21.png)
 
 On voit qu'on peut aller sur le port 80 donc http : 
-http://<ip>/
+http://10.82.134.213/
 
 On arrive sur cette page :
 ![](img/2025-11-24-21-15-53.png)
@@ -29,7 +29,7 @@ On a donc pleins de choses intéressantes :
     -/assets
 
 On va commencer par robots.txt : 
-http://<ip>/robots.txt
+http://10.82.134.213/robots.txt
 
 on va curl ca : 
 ![](img/2025-11-24-21-20-34.png)
@@ -44,7 +44,7 @@ On essaye l'user et le mdp :
 user : *R1ckRul3s*
 psswd : *Wubbalubbadubdub*
 
-On arrive sur http://<ip>/portal.php
+On arrive sur http://10.82.134.213/portal.php
 ![](img/2025-11-24-21-27-37.png)
 
 On voit donc maintenant un command pannel, c'est une console utilisable, on va tester des commandes :
@@ -54,7 +54,7 @@ On voit donc maintenant un command pannel, c'est une console utilisable, on va t
 
 On a pleins de nouveau fichier à découvrir : 
 
-On curl : http://<ip>/Sup3rS3cretPickl3Ingred.txt
+On curl : http://10.82.134.213/Sup3rS3cretPickl3Ingred.txt
 ![](img/2025-11-24-21-29-36.png)
 On à le premier ingrédient ! 
 

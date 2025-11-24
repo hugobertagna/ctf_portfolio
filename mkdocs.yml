@@ -47,8 +47,8 @@ nav:
           - 'Challenge 2 : TCP Chaine Encodée': rootme/Programmation/TCP-ChaineEncodee.md
 
   - TryHackMe:
-      - 'Web - Hacking':
-          - 'Intro Nmap': tryhackme/Web/a.md
+      - 'WebHacking':
+          - 'Intro Nmap': tryhackme/WebHacking/a.md
 
   - 'Cours et TP':
       - Cybersécurité:

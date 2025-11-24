@@ -30,8 +30,8 @@ nav:
       - 'Burp Suite': outils/burp_suite.md
   - Root-Me:
       - 'Programmation ':
-          - 'Challenge 1 : TCP Retour Au College': rootme/programmation/TCP-RetourAuCollege.md
-          - 'Challenge 2 : TCP Chaine Encodée': rootme/programmation/TCP-ChaineEncodee.md
+          - 'Challenge 1 : TCP Retour Au College': rootme/Programmation/TCP-RetourAuCollege.md
+          - 'Challenge 2 : TCP Chaine Encodée': rootme/Programmation/TCP-ChaineEncodee.md
   - TryHackMe:
       - 'Junior Pentester':
           - 'Intro Nmap': tryhackme/junior/nmap.md

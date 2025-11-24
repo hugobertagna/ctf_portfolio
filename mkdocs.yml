@@ -24,10 +24,9 @@ markdown_extensions:
 nav:
   - Accueil: index.md
   - Outils :
-      - 'John The Ripper': outils\johntheripper.md
+      - 'John The Ripper': outils/johntheripper.md
       - 'Gobuster': outils/gobuster.md
       - 'Nmap': outils/nmap.md
-      - 'Burp Suite': burp_suite.md
   - Root-Me:
       - 'Programmation ':
           - 'Challenge 1 : TCP Retour Au College': rootme/Programmation/TCP-RetourAuCollege.md

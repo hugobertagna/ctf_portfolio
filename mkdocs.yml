@@ -1,88 +1,31 @@
-site_name: Hugo's Cyber Garden
-site_url: https://github.com/hugobertagna/ctf_portfolio
-repo_url: https://github.com/hugobertagna/ctf_portfolio
-repo_name: hugobertagna/ctf_portfolio
-
-theme:
-  name: material
-  language: fr
-  # Logo : mets ton image dans docs/assets/logo.png ou utilise une icone
-  logo: assets/logo.png 
-  favicon: assets/favicon.png
-  
-  features:
-    - navigation.tabs # Onglets en haut de page (très pro)
-    - navigation.sections
-    - navigation.expand
-    - navigation.top # Bouton "Retour en haut"
-    - content.code.copy # Bouton copier
-    - search.suggest # Barre de recherche intelligente
-    - search.highlight
-
-  palette:
-    # Mode Sombre (par défaut)
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: indigo
-      accent: cyan 
-      toggle:
-        icon: material/weather-night
-        name: Passer au mode clair
-
-    # Mode Clair
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: indigo
-      accent: cyan
-      toggle:
-        icon: material/weather-sunny
-        name: Passer au mode sombre
-
-  font:
-    text: Roboto
-    code: Roboto Mono
-
-# Liens en bas de page
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/hugobertagna
-    - icon: simple/root-me
-      link: https://www.root-me.org/hgoods
-    - icon: simple/tryhackme
-      link: https://tryhackme.com/p/hugo.bertagna
-
-markdown_extensions:
-  - admonition # Pour faire des boites colorées (!!! info)
-  - pymdownx.details # Pour pouvoir plier/déplier les boites
-  - pymdownx.superfences
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
-  - attr_list # Pour centrer les images ou changer leur taille
-
-# Ta navigation (Je l'ai gardée telle quelle)
 nav:
   - Accueil: index.md
   - Root-Me:
     - Programmation: 
+        # Vérifie que les fichiers .md sont bien DIRECTEMENT dans le dossier Programmation
         - 'Challenge 1 : TCP - Retour au collège': rootme/Programmation/TCP-RetourAuCollege.md
         - 'Challenge 2 : TCP - Chaîne encodée': rootme/Programmation/TCP-ChaineEncodee.md
     - Systeme:
+        # Attention à la majuscule "Systeme" (comme dans ton tree)
         - 'Challenge 1 : Bash - System 1 ': rootme/Systeme/Bash-System1.md
+  
   - TryHackMe:
+      # Si le fichier est dans un sous-dossier "junior", garde ce chemin. 
+      # Sinon, si le fichier est directement dans tryhackme, enlève "/junior"
       - 'Intro Nmap': tryhackme/junior/nmap.md
+
   - Cours:
-      - 'Cybersécurité': 
-          - 'Notions de base': cours/cybersecurite/notions_de_base.md
-          - 'TD 1 - Ingénierie sociale': cours/cybersecurite/TD_Social_Engineering.md
+      - Cybersécurité: 
+          # Le dossier est dans "rootme" d'après ton tree
+          - 'Notions de base': rootme/cybersecurite/notions_de_base.md
+          - 'TD 1 - Ingénierie sociale': rootme/cybersecurite/TD_Social_Engineering.md
       - 'C System':
-          - 'TP_1 - Apache': cours/csystem/tp1/tp1.md
-          - 'TP_2 - MySQL / MariaDB': cours/csystem/tp2/tp2.md
-          - 'TP_3 - Docker': cours/csystem/tp3/tp3.md
-          - 'TP_A - Gestion des processus sous linux': cours/csystem/tpa/tpa.md
-          - 'TP_B - Communication Inter Processus': cours/csystem/tpb/tpb.md
-          - 'TP_C - Communication Inter Processus II': cours/csystem/tpc/tpc.md
-          - 'TP_D - Les Fichiers et Périphériques': cours/csystem/tpd/tpd.md
+          # CORRECTION ICI : "rootme/C_Systems/" + respect des majuscules
+          # Je pars du principe que le fichier s'appelle comme le dossier (ex: tp1/tp1.md)
+          - 'TP_1 - Apache': rootme/C_Systems/tp1/tp1.md
+          - 'TP_2 - MySQL / MariaDB': rootme/C_Systems/tp2/tp2.md
+          - 'TP_3 - Docker': rootme/C_Systems/tp3/tp3.md
+          - 'TP_A - Gestion des processus': rootme/C_Systems/tpa/tpa.md
+          - 'TP_B - Communication IPC': rootme/C_Systems/tpb/tpb.md
+          - 'TP_C - Communication IPC II': rootme/C_Systems/tpc/tpc.md
+          - 'TP_D - Fichiers et Périphériques': rootme/C_Systems/tpd/tpd.md

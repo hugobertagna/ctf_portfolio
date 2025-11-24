@@ -1,13 +1,13 @@
 # 🛡️ Bienvenue dans mon Labo 🛡️
 
 <p align="center">
-  **Exploration | Documentation | Cybersécurité**
+Exploration | Documentation | Cybersécurité
 </p>
 
 ---
 
 <p align="center">
-  👋 <strong>Salut !</strong><br>
+<strong>Salut !</strong><br>
   Je regroupe ici toute ma documentation, mes "Write-ups" et mes notes techniques.<br>
   Si tu souhaites découvrir l'informatique et plonger dans le monde du <strong>Hacking Éthique</strong> avec moi, tu es au bon endroit !
 </p>
@@ -15,7 +15,7 @@
 <br/>
 
 
-## 🚀 Ma Stack & Outils
+## Mes Outils
 
 <div align="center">
   <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux" />
@@ -27,7 +27,7 @@
 
 <br/>
 
-## 🌐 Mes Réseaux & Plateformes
+## Mes Réseaux & Plateformes
 
 <p align="center"><em>Clique sur les icônes pour voir mes profils et suivre ma progression !</em></p>
 

@@ -1,6 +1,6 @@
 # John the Ripper 
 
- ### info "C'est quoi ?"
+### info "C'est quoi ?"
     **John the Ripper** (JtR) est l'un des outils de cassage de mots de passe les plus célèbres. Il fonctionne **hors ligne** (offline), c'est-à-dire qu'il tente de trouver le mot de passe correspondant à une empreinte chiffrée (hash) que vous avez récupérée.
 
 ### failure "Attention"

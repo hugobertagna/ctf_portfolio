@@ -14,7 +14,7 @@ nav:
       # Sinon, si le fichier est directement dans tryhackme, enlève "/junior"
       - 'Intro Nmap': tryhackme/junior/nmap.md
 
-  - Cours:
+  - Cours-TP:
       - Cybersécurité: 
           # Le dossier est dans "rootme" d'après ton tree
           - 'Notions de base': rootme\cybersecurite\notions_de_base.md

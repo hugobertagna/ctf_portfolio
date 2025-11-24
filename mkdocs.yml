@@ -17,8 +17,8 @@ nav:
   - Cours:
       - Cybersécurité: 
           # Le dossier est dans "rootme" d'après ton tree
-          - 'Notions de base': rootme/cybersecurite/notions_de_base.md
-          - 'TD 1 - Ingénierie sociale': rootme/cybersecurite/TD_Social_Engineering.md
+          - 'Notions de base': rootme\cybersecurite\notions_de_base.md
+          - 'TD 1 - Ingénierie sociale': rootme\cybersecurite\TD_Social_Engineering.md
       - 'C System':
           # CORRECTION ICI : "rootme/C_Systems/" + respect des majuscules
           # Je pars du principe que le fichier s'appelle comme le dossier (ex: tp1/tp1.md)

@@ -25,8 +25,14 @@ nav:
       - 'Cybersécurité': 
           - 'Notions de base': cours/cybersecurite/notions_de_base.md
           - 'TD 1 - Ingénierie sociale': cours/cybersecurite/TD_Social_Engineering.md
-      - 'Réseaux':
-          - 'Modèle OSI': cours/reseaux/modele_osi.md
+      - 'C System':
+          - 'TP_1 - Apache': cours/csystem/tp1/tp1.md
+          - 'TP_2 - MySQL / MariaDB': cours/csystem/tp2/tp2.md
+          - 'TP_3 - Docker': cours/csystem/tp3/tp3.md
+          - 'TP_A - Gestion des processus sous linux': cours/csystem/tpa/tpa.md
+          - 'TP_B - Communication Inter Processus': cours/csystem/tpb/tpb.md
+          - 'TP_C - Communication Inter Processus II': cours/csystem/tpc/tpc.md
+          - 'TP_D - Les Fichiers et Périphériques': cours/csystem/tpd/tpd.md
 
 markdown_extensions:
   - pymdownx.highlight:

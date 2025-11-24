@@ -8,8 +8,8 @@ theme:
   
   # --- GESTION DU LOGO ---
   # Crée un dossier "assets" dans "docs" et mets ton image "logo.png" dedans
-  logo: assets/logo.png
-  favicon: assets/logo.png 
+  # logo: assets/logo.png
+  # favicon: assets/logo.png 
   
   palette:
     scheme: slate # Mode sombre par défaut
@@ -47,8 +47,8 @@ nav:
           - 'Challenge 2 : TCP Chaine Encodée': rootme/Programmation/TCP-ChaineEncodee.md
 
   - TryHackMe:
-      - 'Junior Pentester':
-          - 'Intro Nmap': tryhackme/junior/nmap.md
+      - 'Web - Hacking':
+          - 'Intro Nmap': tryhackme/Web/a.md
 
   - 'Cours et TP':
       - Cybersécurité:

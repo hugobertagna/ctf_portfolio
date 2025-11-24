@@ -5,6 +5,7 @@ repo_url: https://github.com/hugobertagna/ctf_portfolio
 theme:
   name: material
   language: fr 
+  copyright: 'Copyright &copy;  2025 Hugo BERTAGNA. Tous droits réservés.'
   
   # --- GESTION DU LOGO ---
  # logo: assets/logo.png
@@ -16,7 +17,6 @@ theme:
     accent: cyan
   
   # --- NOUVELLES FONCTIONNALITÉS POUR LE STYLE FLUIDE ---
-  copyright: 'Copyright &copy; 2023 - 2025 Hugo BERTAGNA. Tous droits réservés.'
   features:
     - navigation.tabs      # Rend la navigation en haut (Style moderne/fluide)
     - navigation.instant   # Transitions de page instantanées (Style SPA)

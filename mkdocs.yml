@@ -25,12 +25,9 @@ nav:
   - Accueil: index.md
   
   - Root-Me:
-      - 'Web - Client':
-          - 'Challenge 1 : HTML': rootme/web/challenge1.md
-          - 'Challenge 2 : Javascript': rootme/web/challenge2.md
-      - 'Web - Serveur':
-          - 'SQL Injection': rootme/web-serveur/sqli.md
-  
+      - 'Programmation ':
+          - 'Challenge 1 : TCP Retour Au College': rootme/programmation/TCP-RetourAuCollege.md
+          - 'Challenge 2 : TCP Chaine Encodée': rootme/programmation/TCP-ChaineEncodee.md
   - TryHackMe:
       - 'Junior Pentester':
           - 'Intro Nmap': tryhackme/junior/nmap.md
@@ -39,6 +36,7 @@ nav:
       - Cybersécurité:
           # Assure-toi que ce fichier existe bien dans docs/cours-TP/cybersecurite/
           - 'Notions de base': cours-TP/cybersecurite/notions_de_base.md
+          - 'TD - Social Engineering': cours-TP/cybersecurite/TD_Social_Engineering.md
           
       - 'Systèmes C':
           # Attention aux majuscules : C_Systems doit correspondre à ton dossier

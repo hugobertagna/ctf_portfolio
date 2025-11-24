@@ -23,10 +23,10 @@ markdown_extensions:
 # LE MENU DE NAVIGATION
 nav:
   - Accueil: index.md
-  - Outils:
-      - 'John The Ripper': outils/johntheripper.md
-      - 'Gobuster': outils/gobuster.md
-      - 'Nmap': outils/nmap.md
+  - Tools:
+      - 'John The Ripper': Tools/johntheripper.md
+      - 'Gobuster': Tools/gobuster.md
+      - 'Nmap': Tools/nmap.md
   - Root-Me:
       - 'Programmation ':
           - 'Challenge 1 : TCP Retour Au College': rootme/Programmation/TCP-RetourAuCollege.md

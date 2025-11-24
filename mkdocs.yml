@@ -23,7 +23,7 @@ markdown_extensions:
 # LE MENU DE NAVIGATION
 nav:
   - Accueil: index.md
-  - Outils :
+  - Outils:
       - 'John The Ripper': outils/johntheripper.md
       - 'Gobuster': outils/gobuster.md
       - 'Nmap': outils/nmap.md

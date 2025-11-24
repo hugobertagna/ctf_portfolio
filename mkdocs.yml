@@ -14,14 +14,10 @@ theme:
 nav:
   - Accueil: index.md
   - Root-Me:
-      - 'Web - Client':
-          - 'Challenge 1 : HTML': rootme/web/challenge1.md
-          - 'Challenge 2 : Javascript': rootme/web/challenge2.md
-      - 'Web - Serveur':
-          - 'SQL Injection': rootme/web-serveur/sqli.md
+      - 'Challenge 1 : HTML': rootme/challenge1.md
+      - 'Challenge 2 : Javascript': rootme/challenge2.md
   - TryHackMe:
-      - 'Junior Pentester':
-          - 'Intro Nmap': tryhackme/junior/nmap.md
+      - 'Intro Nmap': tryhackme/junior/nmap.md
 
 markdown_extensions:
   - pymdownx.highlight:

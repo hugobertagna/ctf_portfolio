@@ -4,19 +4,22 @@ repo_url: https://github.com/hugobertagna/ctf_portfolio
 
 theme:
   name: material
-  language: fr # Met l'interface (recherche, boutons) en français
+  language: fr 
   
   # --- GESTION DU LOGO ---
-  # Crée un dossier "assets" dans "docs" et mets ton image "logo.png" dedans
-  # logo: assets/logo.png
-  # favicon: assets/logo.png 
+ # logo: assets/logo.png
+ ## fa#vicon: assets/logo.png 
   
   palette:
     scheme: slate # Mode sombre par défaut
     primary: indigo
     accent: cyan
   
+  # --- NOUVELLES FONCTIONNALITÉS POUR LE STYLE FLUIDE ---
+  copyright: 'Copyright &copy; 2023 - 2025 Hugo BERTAGNA. Tous droits réservés.'
   features:
+    - navigation.tabs      # Rend la navigation en haut (Style moderne/fluide)
+    - navigation.instant   # Transitions de page instantanées (Style SPA)
     - navigation.expand
     - content.code.copy
     - navigation.top
@@ -32,34 +35,35 @@ markdown_extensions:
   - attr_list
   - pymdownx.emoji # Pour pouvoir utiliser des emojis :rocket:
 
+# LE MENU DE NAVIGATION
 nav:
   - 🏠 Accueil: index.md
   
-  # Vérifie que ton dossier s'appelle bien "Tools" (et pas "outils")
-  - 🔧Tools:
+  - 🔧 Tools:
       - '📜 John The Ripper': Tools/johntheripper.md
       - '📜 Gobuster': Tools/gobuster.md
       - '📜 Nmap': Tools/nmap.md
 
   - 🌐 Root-Me:
-      - 📁Programmation:
+      - Programmation:
           - '📜 Challenge 1 : TCP Retour Au College': rootme/Programmation/TCP-RetourAuCollege.md
           - '📜 Challenge 2 : TCP Chaine Encodée': rootme/Programmation/TCP-ChaineEncodee.md
 
-  - 🌐 TryHackMe:
-      - '📁 WebHacking':
+  - TryHackMe:
+      - 'Junior Pentester':
+          - '📜 Intro Nmap': tryhackme/junior/nmap.md
+      - 'WebHacking':
           - '📜 a': tryhackme/WebHacking/a.md
 
   - '📗 Cours et TP':
-      - 📁 Cybersécurité:
+      - Cybersécurité:
           - '📜 Notions de base': cours-TP/cybersecurite/notions_de_base.md
           - '📜 TD - Social Engineering': cours-TP/cybersecurite/TD_Social_Engineering.md
       
-      - '📁 Systèmes C':
-          # Vérifie que le dossier sur ton PC est bien "C_Systems" (Majuscule importante !)
+      - 'Systèmes C':
           - '📜 TP 1 - Apache': cours-TP/C_Systems/tp1/tp1.md
-          - '📜 TP 2 - MySQL': cours-TP/C_Systems/tp2/tp2.md
-          - '📜 TP 3 - Docker': cours-TP/C_Systems/tp3/tp3.md
+          - '📜 TP 2 : MySQL': cours-TP/C_Systems/tp2/tp2.md
+          - '📜 TP 3 : Docker': cours-TP/C_Systems/tp3/tp3.md
           - '📜 TP A : Gestion des processus sous Linux': cours-TP/C_Systems/tpa/tpa.md
           - '📜 TP B : Communication Inter Processus I': cours-TP/C_Systems/tpb/tpb.md
           - '📜 TP C : Communication Inter Processus II': cours-TP/C_Systems/tpc/tpc.md

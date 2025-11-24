@@ -17,6 +17,8 @@ nav:
     - 'Programmation': 
         - 'Challenge 1 : TCP - Retour au collège': rootme/Programmation/TCP-RetourAuCollege.md
         - 'Challenge 2 : TCP - Chaîne encodée': rootme/Programmation/TCP-ChaineEncodee.md
+    - 'Systeme' :
+        - 'Challenge 1 : Bash - System 1 ': rootme/Systeme/Bash-System1.md
   - TryHackMe:
       - 'Intro Nmap': tryhackme/junior/nmap.md
 

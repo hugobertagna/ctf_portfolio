@@ -14,13 +14,19 @@ theme:
 nav:
   - Accueil: index.md
   - Root-Me:
-    - 'Programmation': 
+    - Programmation: 
         - 'Challenge 1 : TCP - Retour au collège': rootme/Programmation/TCP-RetourAuCollege.md
         - 'Challenge 2 : TCP - Chaîne encodée': rootme/Programmation/TCP-ChaineEncodee.md
-    - 'Systeme' :
+    - Systeme:
         - 'Challenge 1 : Bash - System 1 ': rootme/Systeme/Bash-System1.md
   - TryHackMe:
       - 'Intro Nmap': tryhackme/junior/nmap.md
+  - Cours:
+      - 'Cybersécurité': 
+          - 'Notions de base': cours/cybersecurite/notions_de_base.md
+          - 'TD 1 - Ingénierie sociale': cours/cybersecurite/TD_Social_Engineering.md
+      - 'Réseaux':
+          - 'Modèle OSI': cours/reseaux/modele_osi.md
 
 markdown_extensions:
   - pymdownx.highlight:

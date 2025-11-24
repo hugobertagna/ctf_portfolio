@@ -12,7 +12,7 @@ theme:
   
   palette:
     scheme: slate # Mode sombre par défaut
-    primary: indigo
+    primary: black
     accent: cyan
   
   # --- NOUVELLES FONCTIONNALITÉS POUR LE STYLE FLUIDE ---
@@ -49,9 +49,7 @@ nav:
           - '📜 Challenge 1 : TCP Retour Au College': rootme/Programmation/TCP-RetourAuCollege.md
           - '📜 Challenge 2 : TCP Chaine Encodée': rootme/Programmation/TCP-ChaineEncodee.md
 
-  - TryHackMe:
-      - 'Junior Pentester':
-          - '📜 Intro Nmap': tryhackme/junior/nmap.md
+  - 🌐 TryHackMe:
       - 'WebHacking':
           - '📜 a': tryhackme/WebHacking/a.md
 

@@ -1,21 +1,22 @@
-<div align="center">
-
 # 🛡️ Bienvenue dans mon Labo 🛡️
 
-**Exploration | Documentation | Cybersécurité**
+<p align="center">
+  **Exploration | Documentation | Cybersécurité**
+</p>
 
 ---
 
-<br/>
-
-👋 **Salut !**
-
-Je regroupe ici toute ma documentation, mes "Write-ups" et mes notes techniques.
-Si tu souhaites découvrir l'informatique et plonger dans le monde du **Hacking Éthique** avec moi, tu es au bon endroit !
+<p align="center">
+  👋 <strong>Salut !</strong><br>
+  Je regroupe ici toute ma documentation, mes "Write-ups" et mes notes techniques.<br>
+  Si tu souhaites découvrir l'informatique et plonger dans le monde du <strong>Hacking Éthique</strong> avec moi, tu es au bon endroit !
+</p>
 
 <br/>
 
 ## 🚀 Ma Stack & Outils
+
+<div align="center">
 
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 ![Kali](https://img.shields.io/badge/Kali-268BEE?style=for-the-badge&logo=kalilinux&logoColor=white)
@@ -23,13 +24,15 @@ Si tu souhaites découvrir l'informatique et plonger dans le monde du **Hacking 
 ![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)
 ![Wireshark](https://img.shields.io/badge/Wireshark-1679A7?style=for-the-badge&logo=wireshark&logoColor=white)
 
+</div>
+
 <br/>
 
 ## 🌐 Mes Réseaux & Plateformes
 
-*Clique sur les icônes pour voir mes profils et suivre ma progression !*
+<p align="center"><em>Clique sur les icônes pour voir mes profils et suivre ma progression !</em></p>
 
-<br/>
+<div align="center">
 
 <a href="https://github.com/hugobertagna" target="_blank">
   <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" height="35" alt="GitHub"/>
@@ -43,7 +46,7 @@ Si tu souhaites découvrir l'informatique et plonger dans le monde du **Hacking 
   <img src="https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=html5&logoColor=white" height="35" alt="Mon Site"/>
 </a>
 
-<br/>
+<br/><br/>
 
 <a href="https://www.root-me.org/hgoods?lang=fr#c35ebe3bd7ff2b5738045e98c8d64e0c" target="_blank">
   <img src="https://img.shields.io/badge/Root--Me-222222?style=for-the-badge&logo=root-me&logoColor=white" height="35" alt="Root-Me"/>
@@ -52,9 +55,5 @@ Si tu souhaites découvrir l'informatique et plonger dans le monde du **Hacking 
 <a href="https://tryhackme.com/p/hugo.bertagna" target="_blank">
   <img src="https://img.shields.io/badge/TryHackMe-C5161D?style=for-the-badge&logo=tryhackme&logoColor=white" height="35" alt="TryHackMe"/>
 </a>
-
-<br/>
-<br/>
-
 
 </div>

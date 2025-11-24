@@ -33,34 +33,34 @@ markdown_extensions:
   - pymdownx.emoji # Pour pouvoir utiliser des emojis :rocket:
 
 nav:
-  - Accueil: index.md
+  - 🏠 Accueil: index.md
   
   # Vérifie que ton dossier s'appelle bien "Tools" (et pas "outils")
-  - Tools:
-      - 'John The Ripper': Tools/johntheripper.md
-      - 'Gobuster': Tools/gobuster.md
-      - 'Nmap': Tools/nmap.md
+  - 🔧Tools:
+      - '📜 John The Ripper': Tools/johntheripper.md
+      - '📜 Gobuster': Tools/gobuster.md
+      - '📜 Nmap': Tools/nmap.md
 
-  - Root-Me:
-      - Programmation:
-          - 'Challenge 1 : TCP Retour Au College': rootme/Programmation/TCP-RetourAuCollege.md
-          - 'Challenge 2 : TCP Chaine Encodée': rootme/Programmation/TCP-ChaineEncodee.md
+  - 🌐 Root-Me:
+      - 📁Programmation:
+          - '📜 Challenge 1 : TCP Retour Au College': rootme/Programmation/TCP-RetourAuCollege.md
+          - '📜 Challenge 2 : TCP Chaine Encodée': rootme/Programmation/TCP-ChaineEncodee.md
 
-  - TryHackMe:
-      - 'WebHacking':
-          - 'a': tryhackme/WebHacking/a.md
+  - 🌐 TryHackMe:
+      - '📁 WebHacking':
+          - '📜 a': tryhackme/WebHacking/a.md
 
-  - 'Cours et TP':
-      - Cybersécurité:
-          - 'Notions de base': cours-TP/cybersecurite/notions_de_base.md
-          - 'TD - Social Engineering': cours-TP/cybersecurite/TD_Social_Engineering.md
+  - '📗 Cours et TP':
+      - 📁 Cybersécurité:
+          - '📜 Notions de base': cours-TP/cybersecurite/notions_de_base.md
+          - '📜 TD - Social Engineering': cours-TP/cybersecurite/TD_Social_Engineering.md
       
-      - 'Systèmes C':
+      - '📁 Systèmes C':
           # Vérifie que le dossier sur ton PC est bien "C_Systems" (Majuscule importante !)
-          - 'TP 1 - Apache': cours-TP/C_Systems/tp1/tp1.md
-          - 'TP 2 - MySQL': cours-TP/C_Systems/tp2/tp2.md
-          - 'TP 3 - Docker': cours-TP/C_Systems/tp3/tp3.md
-          - 'TP A : Gestion des processus sous Linux': cours-TP/C_Systems/tpa/tpa.md
-          - 'TP B : Communication Inter Processus I': cours-TP/C_Systems/tpb/tpb.md
-          - 'TP C : Communication Inter Processus II': cours-TP/C_Systems/tpc/tpc.md
-          - 'TP D : Les Fichiers et périphériques': cours-TP/C_Systems/tpd/tpd.md
+          - '📜 TP 1 - Apache': cours-TP/C_Systems/tp1/tp1.md
+          - '📜 TP 2 - MySQL': cours-TP/C_Systems/tp2/tp2.md
+          - '📜 TP 3 - Docker': cours-TP/C_Systems/tp3/tp3.md
+          - '📜 TP A : Gestion des processus sous Linux': cours-TP/C_Systems/tpa/tpa.md
+          - '📜 TP B : Communication Inter Processus I': cours-TP/C_Systems/tpb/tpb.md
+          - '📜 TP C : Communication Inter Processus II': cours-TP/C_Systems/tpc/tpc.md
+          - '📜 TP D : Les Fichiers et périphériques': cours-TP/C_Systems/tpd/tpd.md

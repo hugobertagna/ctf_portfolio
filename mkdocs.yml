@@ -1,30 +1,51 @@
+site_name: Hugo BERTAGNA - Doc Website
+site_url: https://hugobertagna.github.io/ctf_portfolio/
+
+theme:
+  name: material
+  palette:
+    scheme: slate # Mode sombre
+    primary: indigo
+  features:
+    - navigation.expand # Déplie les menus
+    - content.code.copy # Bouton copier
+    - navigation.top    # Bouton retour en haut
+
+# Configuration des extensions (Alertes, Code, etc.)
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - attr_list
+
+# LE MENU DE NAVIGATION
 nav:
   - Accueil: index.md
+  
   - Root-Me:
-    - Programmation: 
-        # Vérifie que les fichiers .md sont bien DIRECTEMENT dans le dossier Programmation
-        - 'Challenge 1 : TCP - Retour au collège': rootme/Programmation/TCP-RetourAuCollege.md
-        - 'Challenge 2 : TCP - Chaîne encodée': rootme/Programmation/TCP-ChaineEncodee.md
-    - Systeme:
-        # Attention à la majuscule "Systeme" (comme dans ton tree)
-        - 'Challenge 1 : Bash - System 1 ': rootme/Systeme/Bash-System1.md
+      - 'Web - Client':
+          - 'Challenge 1 : HTML': rootme/web/challenge1.md
+          - 'Challenge 2 : Javascript': rootme/web/challenge2.md
+      - 'Web - Serveur':
+          - 'SQL Injection': rootme/web-serveur/sqli.md
   
   - TryHackMe:
-      # Si le fichier est dans un sous-dossier "junior", garde ce chemin. 
-      # Sinon, si le fichier est directement dans tryhackme, enlève "/junior"
-      - 'Intro Nmap': tryhackme/junior/nmap.md
+      - 'Junior Pentester':
+          - 'Intro Nmap': tryhackme/junior/nmap.md
 
-  - Cours-TP:
+  - 'Cours et TP':
       - Cybersécurité:
-          # Le chemin commence par le nom du dossier dans "docs"
+          # Assure-toi que ce fichier existe bien dans docs/cours-TP/cybersecurite/
           - 'Notions de base': cours-TP/cybersecurite/notions_de_base.md
-          - 'TD 1 - Ingénierie sociale': cours-TP/cybersecurite/TD_Social_Engineering.md
-      - 'C System':
-          # Correction du chemin : on remplace "rootme" par "cours-TP"
-          - 'TP_1 - Apache': cours-TP/C_Systems/tp1/tp1.md
-          - 'TP_2 - MySQL / MariaDB': cours-TP/C_Systems/tp2/tp2.md
-          - 'TP_3 - Docker': cours-TP/C_Systems/tp3/tp3.md
-          - 'TP_A - Gestion des processus': cours-TP/C_Systems/tpa/tpa.md
-          - 'TP_B - Communication IPC': cours-TP/C_Systems/tpb/tpb.md
-          - 'TP_C - Communication IPC II': cours-TP/C_Systems/tpc/tpc.md
-          - 'TP_D - Fichiers et Périphériques': cours-TP/C_Systems/tpd/tpd.md
+          
+      - 'Systèmes C':
+          # Attention aux majuscules : C_Systems doit correspondre à ton dossier
+          - 'TP 1 - Apache': cours-TP/C_Systems/tp1/tp1.md
+          - 'TP 2 - MySQL': cours-TP/C_Systems/tp2/tp2.md
+          - 'TP 3 - Docker': cours-TP/C_Systems/tp3/tp3.md
+          - 'TP A': cours-TP/C_Systems/tpa/tpa.md
+          - 'TP B': cours-TP/C_Systems/tpb/tpb.md
+          - 'TP C': cours-TP/C_Systems/tpc/tpc.md
+          - 'TP D': cours-TP/C_Systems/tpd/tpd.md

@@ -7,58 +7,50 @@ theme:
   language: fr
   copyright: '© 2025 Hugo BERTAGNA. Tous droits réservés.'
 
-  # --- LOGO & FAVICON ---
-  # Décommenter les lignes suivantes si vous avez placé vos images
-  # (ex: logo.png) dans le répertoire 'docs/assets/' de votre projet.
-  # logo: assets/logo.png
-  # favicon: assets/logo.png 
-
-  # --- PALETTE BICOLORE (Mode Clair/Sombre Dynamique) ---
+  # --- GESTION DU BOUTON CLAIR/SOMBRE ---
   palette:
-    # 1. Mode Clair (Défaut)
+    # 1. Schéma par défaut (Clair)
     - scheme: default 
+      primary: indigo          # Couleur de la barre de navigation
+      accent: deep orange      # Couleur d'accentuation (liens, icônes)
       toggle:
-        icon: material/brightness-7 # Icône Soleil
-        name: Passer au mode sombre
-      primary: indigo # Barre de navigation principale (Couleur froide)
-      accent: deep orange # Liens et éléments d'accentuation (Couleur chaude)
+        icon: material/brightness-7 # Icône "Soleil" pour le mode clair
+        name: Passer au mode sombre  # Texte affiché au survol
 
-    # 2. Mode Sombre (Slate)
+    # 2. Schéma alternatif (Sombre)
     - scheme: slate
+      primary: black           # Couleur de la barre de navigation
+      accent: lime             # Couleur d'accentuation vive sur fond sombre
       toggle:
-        icon: material/brightness-4 # Icône Lune
-        name: Passer au mode clair
-      primary: black # Noir élégant
-      accent: lime # Vert éclatant pour le contraste sur fond noir
+        icon: material/brightness-4 # Icône "Lune" pour le mode sombre
+        name: Passer au mode clair   # Texte affiché au survol
 
-  # --- FONCTIONNALITÉS CLÉS (Style Moderne et Fluide) ---
+  # --- FONCTIONNALITÉS CLÉS ---
   features:
-    - navigation.tabs          # Navigation principale en haut
-    - navigation.instant       # Transitions de page rapides (style SPA)
-    - navigation.expand        # Garde les sections ouvertes dans la barre latérale
+    - navigation.tabs          # Navigation principale en onglets
+    - navigation.instant       # Transitions de page rapides
+    - navigation.expand        # Les sections restent ouvertes dans la barre latérale
     - navigation.top           # Bouton "Retour en haut"
-    - navigation.footer        # Liens de navigation bas de page (Précédent/Suivant)
-    - toc.follow               # La table des matières suit le défilement
     - content.code.copy        # Bouton "Copier" sur les blocs de code
-    - content.tabs             # Permet les blocs de contenu à onglets
-    - content.tooltips         # Permet l'affichage des info-bulles (via l'extension attr_list)
+    - content.tabs             # Support pour les blocs de contenu à onglets
+    - toc.follow               # La Table des Matières suit le défilement
     - search.suggest           # Suggestions de recherche
     - search.highlight         # Surlignage du texte trouvé
 
-# --- EXTENSIONS MARKDOWN (Pour enrichir le contenu) ---
+# --- EXTENSIONS MARKDOWN (Richesse du Contenu) ---
 markdown_extensions:
-  - pymdownx.highlight:        # Coloration syntaxique avancée
+  - pymdownx.highlight:
       anchor_linenums: true
-  - pymdownx.superfences       # Amélioration de l'affichage des blocs de code
-  - admonition                 # Blocs de notes, avertissements, etc.
-  - pymdownx.details           # Blocs dépliables (détails)
-  - attr_list                  # Attributs pour les blocs (ex: alignement)
-  - pymdownx.emoji:           # Support avancé des emojis et icônes
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  - pymdownx.tasklist:        # Listes de tâches cliquables
+  - pymdownx.tasklist:
       custom_checkbox: true
-  - pymdownx.tabbed:          # Blocs d'onglets pour afficher du contenu alternatif
+  - pymdownx.tabbed:
       alternate_style: true
 
 # --- STRUCTURE DE LA DOCUMENTATION (Navigation) ---

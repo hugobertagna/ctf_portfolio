@@ -44,6 +44,8 @@ nav:
       - '📜 Gobuster': Tools/gobuster.md
       - '📜 Nmap': Tools/nmap.md
       - '📜 OpenSSL': Tools/openssl.md
+      - '📜 Burp Suite': Tools/burpsuite.md
+      :
 
   - 🌐 Root-Me:
       - Programmation:

@@ -7,46 +7,40 @@ theme:
   language: fr
   copyright: '© 2025 Hugo BERTAGNA. Tous droits réservés.'
 
-  # --- LOGO & FAVICON ---
-  # Décommenter si vous avez des images dans docs/assets/
-  # logo: assets/logo.png
-  # favicon: assets/logo.png 
-
-  # --- PALETTE BICOLORE (Mode Clair/Sombre Dynamique) ---
+  # --- PALETTE (Clair/Sombre) ---
   palette:
     # 1. Mode Clair (Défaut)
     - scheme: default 
       toggle:
-        icon: material/brightness-7 # Icône Soleil (Clair)
+        icon: material/brightness-7 
         name: Passer au mode sombre
       primary: indigo          
       accent: deep orange      
-
     # 2. Mode Sombre (Slate)
     - scheme: slate
       toggle:
-        icon: material/brightness-4 # Icône Lune (Sombre)
+        icon: material/brightness-4 
         name: Passer au mode clair
       primary: black           
       accent: lime             
 
-  # --- FONCTIONNALITÉS CLÉS (Style Moderne et Épuré) ---
+  # --- FONCTIONNALITÉS CLÉS ---
   features:
     - navigation.tabs           # Navigation principale en onglets
-    - navigation.tabs.sticky    # Les onglets restent visibles en défilement
-    - navigation.prune          # MASQUE la navigation latérale si elle est déjà dans les onglets (CORRECTION DE LA DUPLICATION)
-    - navigation.instant        # Transitions de page rapides
-    - navigation.expand         # Les sections restent ouvertes dans la barre latérale
-    - navigation.top            # Bouton "Retour en haut"
-    - navigation.footer         # Liens Précédent/Suivant en bas de page
-    - toc.follow                # La Table des Matières suit le défilement
-    - content.code.copy         # Bouton "Copier" sur les blocs de code
-    - content.tabs              # Support pour les blocs de contenu à onglets
-    - search.suggest            # Suggestions de recherche
-    - search.highlight          # Surlignage du texte trouvé
-    - search.share              # Ajoute le bouton de partage
+    - navigation.tabs.sticky    # Onglets visibles en défilement
+    - navigation.prune          # Tente de masquer la duplication
+    - navigation.instant        
+    - navigation.expand         
+    - navigation.top            
+    - navigation.footer         
+    - toc.follow                
+    - content.code.copy         
+    - content.tabs              
+    - search.suggest            
+    - search.highlight          
+    - search.share              
 
-# --- EXTENSIONS MARKDOWN ---
+# --- EXTENSIONS MARKDOWN (Identiques) ---
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
@@ -62,10 +56,12 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
 
-# --- STRUCTURE DE LA DOCUMENTATION (Navigation) ---
+# --- STRUCTURE DE LA DOCUMENTATION (Correction de la duplication par indexation) ---
 nav:
+  # L'accueil est déjà l'index, c'est pourquoi il fonctionne
   - Accueil: index.md
   
+  # TOOLS : L'élément est déjà un fichier (commande-linux.md est le premier lien)
   - Tools:
       - '📜 Commande Linux': Tools/commande-linux.md
       - '📜 John The Ripper': Tools/johntheripper.md
@@ -74,29 +70,32 @@ nav:
       - '📜 OpenSSL': Tools/openssl.md
       - '📜 Burp Suite': Tools/burpsuite.md
       
-  - Root-Me:
-      - Programmation:
-          - '📜 TCP Retour Au College': rootme/Programmation/TCP-RetourAuCollege.md
-          - '📜 TCP Chaine Encodée': rootme/Programmation/TCP-ChaineEncodee.md
-      - Steganographie:
-          - '📜 Twitter Secret Message': rootme/Steganographie/TwitterSecrt.md
-      - Systeme:
-          - '📜 Bash System 1': rootme/Systeme/Bash-System1.md
+  # ROOT-ME : Vous DEVEZ créer rootme/index.md pour que l'onglet soit un fichier cliquable
+  - 🌐 Root-Me: rootme/index.md
+    - Programmation:
+        - '📜 TCP Retour Au College': rootme/Programmation/TCP-RetourAuCollege.md
+        - '📜 TCP Chaine Encodée': rootme/Programmation/TCP-ChaineEncodee.md
+    - Steganographie:
+        - '📜 Twitter Secret Message': rootme/Steganographie/TwitterSecrt.md
+    - Systeme:
+        - '📜 Bash System 1': rootme/Systeme/Bash-System1.md
           
-  - TryHackMe:
-      - 'WebHacking':
-          - '📜 Pickle Rick': tryhackme/WebHacking/PickleRick.md
+  # TRYHACKME : Vous DEVEZ créer tryhackme/index.md
+  - 🌐 TryHackMe: tryhackme/index.md
+    - 'WebHacking':
+        - '📜 Pickle Rick': tryhackme/WebHacking/PickleRick.md
 
-  - Cours et TP:
-      - Cybersécurité:
-          - '📜 Notions de base': cours-TP/cybersecurite/notions_de_base.md
-          - '📜 TD - Social Engineering': cours-TP/cybersecurite/TD_Social_Engineering.md
-          
-      - 'Systèmes C':
-          - '📜 TP 1 - Apache': cours-TP/C_Systems/tp1/tp1.md
-          - '📜 TP 2 : MySQL': cours-TP/C_Systems/tp2/tp2.md
-          - '📜 TP 3 : Docker': cours-TP/C_Systems/tp3/tp3.md
-          - '📜 TP A : Gestion des processus sous Linux': cours-TP/C_Systems/tpa/tpa.md
-          - '📜 TP B : Communication Inter Processus I': cours-TP/C_Systems/tpb/tpb.md
-          - '📜 TP C : Communication Inter Processus II': cours-TP/C_Systems/tpc/tpc.md
-          - '📜 TP D : Les Fichiers et périphériques': cours-TP/C_Systems/tpd/tpd.md
+  # COURS ET TP : Vous DEVEZ créer cours-TP/index.md
+  - '📗 Cours et TP': cours-TP/index.md
+    - Cybersécurité:
+        - '📜 Notions de base': cours-TP/cybersecurite/notions_de_base.md
+        - '📜 TD - Social Engineering': cours-TP/cybersecurite/TD_Social_Engineering.md
+        
+    - 'Systèmes C':
+        - '📜 TP 1 - Apache': cours-TP/C_Systems/tp1/tp1.md
+        - '📜 TP 2 : MySQL': cours-TP/C_Systems/tp2/tp2.md
+        - '📜 TP 3 : Docker': cours-TP/C_Systems/tp3/tp3.md
+        - '📜 TP A : Gestion des processus sous Linux': cours-TP/C_Systems/tpa/tpa.md
+        - '📜 TP B : Communication Inter Processus I': cours-TP/C_Systems/tpb/tpb.md
+        - '📜 TP C : Communication Inter Processus II': cours-TP/C_Systems/tpc/tpc.md
+        - '📜 TP D : Les Fichiers et périphériques': cours-TP/C_Systems/tpd/tpd.md

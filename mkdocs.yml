@@ -50,6 +50,8 @@ nav:
           - '📜 TCP Chaine Encodée': rootme/Programmation/TCP-ChaineEncodee.md
       - Steganographie:
           - '📜 Twitter Secret Message': rootme/Steganographie/TwitterSecrt.md
+      - Systeme:
+          - '📜 Bash System 1': rootme/Systeme/Bash-System1.md
   - 🌐 TryHackMe:
       - 'WebHacking':
           - '📜 Pickle Rick': tryhackme/WebHacking/PickleRick.md

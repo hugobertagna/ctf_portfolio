@@ -19,31 +19,32 @@ theme:
       toggle:
         icon: material/brightness-7 # Icône Soleil (Clair)
         name: Passer au mode sombre
-      primary: indigo          # Barre de navigation principale
-      accent: deep orange      # Liens et éléments d'accentuation
+      primary: indigo          
+      accent: deep orange      
 
     # 2. Mode Sombre (Slate)
     - scheme: slate
       toggle:
         icon: material/brightness-4 # Icône Lune (Sombre)
         name: Passer au mode clair
-      primary: black           # Barre de navigation principale
-      accent: lime             # Accentuation vive sur fond noir
+      primary: black           
+      accent: lime             
 
   # --- FONCTIONNALITÉS CLÉS (Style Moderne et Épuré) ---
   features:
-    - navigation.tabs          # Navigation principale en onglets (la clé du style)
-    - navigation.tabs.sticky   # Les onglets restent visibles en défilement
-    - navigation.instant       # Transitions de page rapides
-    - navigation.expand        # Les sections restent ouvertes dans la barre latérale
-    - navigation.top           # Bouton "Retour en haut"
-    - navigation.footer        # Liens Précédent/Suivant en bas de page
-    - toc.follow               # La Table des Matières suit le défilement
-    - content.code.copy        # Bouton "Copier" sur les blocs de code
-    - content.tabs             # Support pour les blocs de contenu à onglets
-    - search.suggest           # Suggestions de recherche
-    - search.highlight         # Surlignage du texte trouvé
-    - search.share             # Ajoute le bouton de partage
+    - navigation.tabs           # Navigation principale en onglets
+    - navigation.tabs.sticky    # Les onglets restent visibles en défilement
+    - navigation.prune          # MASQUE la navigation latérale si elle est déjà dans les onglets (CORRECTION DE LA DUPLICATION)
+    - navigation.instant        # Transitions de page rapides
+    - navigation.expand         # Les sections restent ouvertes dans la barre latérale
+    - navigation.top            # Bouton "Retour en haut"
+    - navigation.footer         # Liens Précédent/Suivant en bas de page
+    - toc.follow                # La Table des Matières suit le défilement
+    - content.code.copy         # Bouton "Copier" sur les blocs de code
+    - content.tabs              # Support pour les blocs de contenu à onglets
+    - search.suggest            # Suggestions de recherche
+    - search.highlight          # Surlignage du texte trouvé
+    - search.share              # Ajoute le bouton de partage
 
 # --- EXTENSIONS MARKDOWN ---
 markdown_extensions:
@@ -61,7 +62,7 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
 
-# --- STRUCTURE DE LA DOCUMENTATION (Navigation sans emojis sur les onglets principaux) ---
+# --- STRUCTURE DE LA DOCUMENTATION (Navigation) ---
 nav:
   - Accueil: index.md
   

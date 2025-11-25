@@ -39,6 +39,7 @@ nav:
   - 🏠 Accueil: index.md
   
   - 🔧 Tools:
+      - '📜 Commande Linux': Tools/commande-linux.md
       - '📜 John The Ripper': Tools/johntheripper.md
       - '📜 Gobuster': Tools/gobuster.md
       - '📜 Nmap': Tools/nmap.md

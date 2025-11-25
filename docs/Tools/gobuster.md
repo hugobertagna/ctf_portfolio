@@ -14,6 +14,7 @@ Si tu cherches des chemins cachés sur un site, c'est la commande standard à re
 ```bash
 gobuster dir -u [http://cible.thm](http://cible.thm) -w /usr/share/wordlists/dirb/common.txt -t 50 -x php,txt,html
 ```
+--- 
 | **Option** | **Description**                                                                                                                         |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | **`dir`**  | Spécifie le **mode de fonctionnement** de Gobuster : la recherche de **répertoires** et de fichiers sur la cible.                       |

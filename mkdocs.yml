@@ -42,6 +42,7 @@ nav:
       - '📜 John The Ripper': Tools/johntheripper.md
       - '📜 Gobuster': Tools/gobuster.md
       - '📜 Nmap': Tools/nmap.md
+      - '📜 OpenSSL': openssl/nmap.md
 
   - 🌐 Root-Me:
       - Programmation:

@@ -4,37 +4,64 @@ repo_url: https://github.com/hugobertagna/ctf_portfolio
 
 theme:
   name: material
-  language: fr 
-  copyright: '© 2025 Hugo BERTAGNA. Tous droits réservés.'  
-  # --- GESTION DU LOGO ---
- # logo: assets/logo.png
- ## fa#vicon: assets/logo.png 
-  
+  language: fr
+  copyright: '© 2025 Hugo BERTAGNA. Tous droits réservés.'
+
+  # --- LOGO & FAVICON ---
+  # Décommenter les lignes suivantes si vous avez placé vos images
+  # (ex: logo.png) dans le répertoire 'docs/assets/' de votre projet.
+  # logo: assets/logo.png
+  # favicon: assets/logo.png 
+
+  # --- PALETTE BICOLORE (Mode Clair/Sombre Dynamique) ---
   palette:
-    scheme: slate # Mode sombre par défaut
-    primary: black
-    accent: cyan
-  
-  # --- NOUVELLES FONCTIONNALITÉS POUR LE STYLE FLUIDE ---
+    # 1. Mode Clair (Défaut)
+    - scheme: default 
+      toggle:
+        icon: material/brightness-7 # Icône Soleil
+        name: Passer au mode sombre
+      primary: indigo # Barre de navigation principale (Couleur froide)
+      accent: deep orange # Liens et éléments d'accentuation (Couleur chaude)
+
+    # 2. Mode Sombre (Slate)
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4 # Icône Lune
+        name: Passer au mode clair
+      primary: black # Noir élégant
+      accent: lime # Vert éclatant pour le contraste sur fond noir
+
+  # --- FONCTIONNALITÉS CLÉS (Style Moderne et Fluide) ---
   features:
-    - navigation.tabs      # Rend la navigation en haut (Style moderne/fluide)
-    - navigation.instant   # Transitions de page instantanées (Style SPA)
-    - navigation.expand
-    - content.code.copy
-    - navigation.top
-    - search.suggest
-    - search.highlight
+    - navigation.tabs          # Navigation principale en haut
+    - navigation.instant       # Transitions de page rapides (style SPA)
+    - navigation.expand        # Garde les sections ouvertes dans la barre latérale
+    - navigation.top           # Bouton "Retour en haut"
+    - navigation.footer        # Liens de navigation bas de page (Précédent/Suivant)
+    - toc.follow               # La table des matières suit le défilement
+    - content.code.copy        # Bouton "Copier" sur les blocs de code
+    - content.tabs             # Permet les blocs de contenu à onglets
+    - content.tooltips         # Permet l'affichage des info-bulles (via l'extension attr_list)
+    - search.suggest           # Suggestions de recherche
+    - search.highlight         # Surlignage du texte trouvé
 
+# --- EXTENSIONS MARKDOWN (Pour enrichir le contenu) ---
 markdown_extensions:
-  - pymdownx.highlight:
+  - pymdownx.highlight:        # Coloration syntaxique avancée
       anchor_linenums: true
-  - pymdownx.superfences
-  - admonition
-  - pymdownx.details
-  - attr_list
-  - pymdownx.emoji # Pour pouvoir utiliser des emojis :rocket:
+  - pymdownx.superfences       # Amélioration de l'affichage des blocs de code
+  - admonition                 # Blocs de notes, avertissements, etc.
+  - pymdownx.details           # Blocs dépliables (détails)
+  - attr_list                  # Attributs pour les blocs (ex: alignement)
+  - pymdownx.emoji:           # Support avancé des emojis et icônes
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.tasklist:        # Listes de tâches cliquables
+      custom_checkbox: true
+  - pymdownx.tabbed:          # Blocs d'onglets pour afficher du contenu alternatif
+      alternate_style: true
 
-# LE MENU DE NAVIGATION
+# --- STRUCTURE DE LA DOCUMENTATION (Navigation) ---
 nav:
   - 🏠 Accueil: index.md
   
@@ -45,6 +72,7 @@ nav:
       - '📜 Nmap': Tools/nmap.md
       - '📜 OpenSSL': Tools/openssl.md
       - '📜 Burp Suite': Tools/burpsuite.md
+      
   - 🌐 Root-Me:
       - Programmation:
           - '📜 TCP Retour Au College': rootme/Programmation/TCP-RetourAuCollege.md
@@ -53,6 +81,7 @@ nav:
           - '📜 Twitter Secret Message': rootme/Steganographie/TwitterSecrt.md
       - Systeme:
           - '📜 Bash System 1': rootme/Systeme/Bash-System1.md
+          
   - 🌐 TryHackMe:
       - 'WebHacking':
           - '📜 Pickle Rick': tryhackme/WebHacking/PickleRick.md
@@ -61,7 +90,7 @@ nav:
       - Cybersécurité:
           - '📜 Notions de base': cours-TP/cybersecurite/notions_de_base.md
           - '📜 TD - Social Engineering': cours-TP/cybersecurite/TD_Social_Engineering.md
-      
+          
       - 'Systèmes C':
           - '📜 TP 1 - Apache': cours-TP/C_Systems/tp1/tp1.md
           - '📜 TP 2 : MySQL': cours-TP/C_Systems/tp2/tp2.md

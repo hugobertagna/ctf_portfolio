@@ -37,11 +37,17 @@ On va chiffrer un msg dans msg.txt :
 ![](img/2025-11-25-18-26-26.png)
 
 On va executer la commande : ```openssl enc -e -aes-128-cbc -in msg.txt -out msgENCRYPT ```  
+
 - *enc* : methode openssl permetannt de chiffrer / dechiffrer
+
 - *-e* : singification "encrypt"
+
 - *-aes-128-cbc* : Algorithme de chiffrement ( ca pourrait en être un autre).
+
 - *-in msg.txt* : fichier à chiffrer 
-- *-out msgENCRYPT* : le fichier précedent en chfifrer. 
+
+- *-out msgENCRYPT* : le fichier précedent en chfifrer.
+
 
 ![](img/2025-11-25-18-32-20.png)
 
@@ -55,10 +61,15 @@ On a donc le nouveau fichier msgENCRYPT on va l'afficher pour montrer qu'il est 
 Commande : ```openssl enc -d -aes-128-cbc -in msgENCRYPT -out msgDECRYPT```
 
 - *enc* : methode openssl permetannt de chiffrer / dechiffrer
+
 - *-d* : singification "decrypt"
+
 - *-aes-128-cbc* : Algorithme de chiffrement ( ca pourrait en être un autre).
+
 - *-in msgENCRYPT* : fichier à dechiffrer
+
 - *-out msgDECRYPT* : le fichier déchiffrer. 
+
 
 ![](img/2025-11-25-18-37-11.png)
 

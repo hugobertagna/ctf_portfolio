@@ -7,62 +7,65 @@ theme:
   language: fr
   copyright: '© 2025 Hugo BERTAGNA. Tous droits réservés.'
 
-  # --- PALETTE (Clair/Sombre) ---
+  # --- LOGO & FAVICON ---
+  # Décommenter les lignes suivantes si vous avez placé vos images
+  # (ex: logo.png) dans le répertoire 'docs/assets/' de votre projet.
+  # logo: assets/logo.png
+  # favicon: assets/logo.png 
+
+  # --- PALETTE BICOLORE (Mode Clair/Sombre Dynamique) ---
   palette:
     # 1. Mode Clair (Défaut)
     - scheme: default 
       toggle:
-        icon: material/brightness-7 
+        icon: material/brightness-7 # Icône Soleil
         name: Passer au mode sombre
-      primary: indigo          
-      accent: deep orange      
+      primary: indigo # Barre de navigation principale (Couleur froide)
+      accent: deep orange # Liens et éléments d'accentuation (Couleur chaude)
+
     # 2. Mode Sombre (Slate)
     - scheme: slate
       toggle:
-        icon: material/brightness-4 
+        icon: material/brightness-4 # Icône Lune
         name: Passer au mode clair
-      primary: black           
-      accent: lime             
+      primary: black # Noir élégant
+      accent: lime # Vert éclatant pour le contraste sur fond noir
 
-  # --- FONCTIONNALITÉS CLÉS ---
+  # --- FONCTIONNALITÉS CLÉS (Style Moderne et Fluide) ---
   features:
-    - navigation.tabs           # Navigation principale en onglets
-    - navigation.tabs.sticky    # Onglets visibles en défilement
-    - navigation.prune          # Tente de masquer la duplication
-    - navigation.instant        
-    - navigation.expand         
-    - navigation.top            
-    - navigation.footer         
-    - toc.follow                
-    - content.code.copy         
-    - content.tabs              
-    - search.suggest            
-    - search.highlight          
-    - search.share              
+    - navigation.tabs          # Navigation principale en haut
+    - navigation.instant       # Transitions de page rapides (style SPA)
+    - navigation.expand        # Garde les sections ouvertes dans la barre latérale
+    - navigation.top           # Bouton "Retour en haut"
+    - navigation.footer        # Liens de navigation bas de page (Précédent/Suivant)
+    - toc.follow               # La table des matières suit le défilement
+    - content.code.copy        # Bouton "Copier" sur les blocs de code
+    - content.tabs             # Permet les blocs de contenu à onglets
+    - content.tooltips         # Permet l'affichage des info-bulles (via l'extension attr_list)
+    - search.suggest           # Suggestions de recherche
+    - search.highlight         # Surlignage du texte trouvé
 
-# --- EXTENSIONS MARKDOWN (Identiques) ---
+# --- EXTENSIONS MARKDOWN (Pour enrichir le contenu) ---
 markdown_extensions:
-  - pymdownx.highlight:
+  - pymdownx.highlight:        # Coloration syntaxique avancée
       anchor_linenums: true
-  - pymdownx.superfences
-  - admonition
-  - pymdownx.details
-  - attr_list
-  - pymdownx.emoji:
+  - pymdownx.superfences       # Amélioration de l'affichage des blocs de code
+  - admonition                 # Blocs de notes, avertissements, etc.
+  - pymdownx.details           # Blocs dépliables (détails)
+  - attr_list                  # Attributs pour les blocs (ex: alignement)
+  - pymdownx.emoji:           # Support avancé des emojis et icônes
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  - pymdownx.tasklist:
+  - pymdownx.tasklist:        # Listes de tâches cliquables
       custom_checkbox: true
-  - pymdownx.tabbed:
+  - pymdownx.tabbed:          # Blocs d'onglets pour afficher du contenu alternatif
       alternate_style: true
 
-# --- STRUCTURE DE LA DOCUMENTATION (Correction de la duplication par indexation) ---
+# --- STRUCTURE DE LA DOCUMENTATION (Navigation) ---
 nav:
-  # L'accueil est déjà l'index, c'est pourquoi il fonctionne
-  - Accueil: index.md
+  - 🏠 Accueil: index.md
   
-  # TOOLS : L'élément est déjà un fichier (commande-linux.md est le premier lien)
-  - Tools:
+  - 🔧 Tools:
       - '📜 Commande Linux': Tools/commande-linux.md
       - '📜 John The Ripper': Tools/johntheripper.md
       - '📜 Gobuster': Tools/gobuster.md
@@ -70,32 +73,29 @@ nav:
       - '📜 OpenSSL': Tools/openssl.md
       - '📜 Burp Suite': Tools/burpsuite.md
       
-  # ROOT-ME : Vous DEVEZ créer rootme/index.md pour que l'onglet soit un fichier cliquable
-  - 🌐 Root-Me: rootme/index.md
-    - Programmation:
-        - '📜 TCP Retour Au College': rootme/Programmation/TCP-RetourAuCollege.md
-        - '📜 TCP Chaine Encodée': rootme/Programmation/TCP-ChaineEncodee.md
-    - Steganographie:
-        - '📜 Twitter Secret Message': rootme/Steganographie/TwitterSecrt.md
-    - Systeme:
-        - '📜 Bash System 1': rootme/Systeme/Bash-System1.md
+  - 🌐 Root-Me:
+      - Programmation:
+          - '📜 TCP Retour Au College': rootme/Programmation/TCP-RetourAuCollege.md
+          - '📜 TCP Chaine Encodée': rootme/Programmation/TCP-ChaineEncodee.md
+      - Steganographie:
+          - '📜 Twitter Secret Message': rootme/Steganographie/TwitterSecrt.md
+      - Systeme:
+          - '📜 Bash System 1': rootme/Systeme/Bash-System1.md
           
-  # TRYHACKME : Vous DEVEZ créer tryhackme/index.md
-  - 🌐 TryHackMe: tryhackme/index.md
-    - 'WebHacking':
-        - '📜 Pickle Rick': tryhackme/WebHacking/PickleRick.md
+  - 🌐 TryHackMe:
+      - 'WebHacking':
+          - '📜 Pickle Rick': tryhackme/WebHacking/PickleRick.md
 
-  # COURS ET TP : Vous DEVEZ créer cours-TP/index.md
-  - '📗 Cours et TP': cours-TP/index.md
-    - Cybersécurité:
-        - '📜 Notions de base': cours-TP/cybersecurite/notions_de_base.md
-        - '📜 TD - Social Engineering': cours-TP/cybersecurite/TD_Social_Engineering.md
-        
-    - 'Systèmes C':
-        - '📜 TP 1 - Apache': cours-TP/C_Systems/tp1/tp1.md
-        - '📜 TP 2 : MySQL': cours-TP/C_Systems/tp2/tp2.md
-        - '📜 TP 3 : Docker': cours-TP/C_Systems/tp3/tp3.md
-        - '📜 TP A : Gestion des processus sous Linux': cours-TP/C_Systems/tpa/tpa.md
-        - '📜 TP B : Communication Inter Processus I': cours-TP/C_Systems/tpb/tpb.md
-        - '📜 TP C : Communication Inter Processus II': cours-TP/C_Systems/tpc/tpc.md
-        - '📜 TP D : Les Fichiers et périphériques': cours-TP/C_Systems/tpd/tpd.md
+  - '📗 Cours et TP':
+      - Cybersécurité:
+          - '📜 Notions de base': cours-TP/cybersecurite/notions_de_base.md
+          - '📜 TD - Social Engineering': cours-TP/cybersecurite/TD_Social_Engineering.md
+          
+      - 'Systèmes C':
+          - '📜 TP 1 - Apache': cours-TP/C_Systems/tp1/tp1.md
+          - '📜 TP 2 : MySQL': cours-TP/C_Systems/tp2/tp2.md
+          - '📜 TP 3 : Docker': cours-TP/C_Systems/tp3/tp3.md
+          - '📜 TP A : Gestion des processus sous Linux': cours-TP/C_Systems/tpa/tpa.md
+          - '📜 TP B : Communication Inter Processus I': cours-TP/C_Systems/tpb/tpb.md
+          - '📜 TP C : Communication Inter Processus II': cours-TP/C_Systems/tpc/tpc.md
+          - '📜 TP D : Les Fichiers et périphériques': cours-TP/C_Systems/tpd/tpd.md

@@ -65,21 +65,21 @@ L'Intruder est un outil puissant pour automatiser des attaques répétitives et 
 
 Absolument ! Voici un cours structuré sur Burp Suite, un outil essentiel pour les tests d'intrusion et la sécurité des applications web, rédigé en Markdown.
 
-🛡️ Introduction à Burp Suite
+Introduction à Burp Suite
 
 Burp Suite est une plateforme intégrée d'outils pour effectuer des tests de sécurité d'applications web. C'est l'outil de référence dans le domaine de l'audit de sécurité des applications HTTP.
 
-🔑 Deux éditions principales
+Deux éditions principales
 
 Édition	Description	Public cible
 Community Edition (Gratuite)	Fonctionnalités de base, y compris le Proxy, l'Intruder limité, et Repeater.	Débutants, étudiants, et usages simples.
 Professional Edition (Payante)	Toutes les fonctionnalités, y compris le scanner automatisé, Intruder illimité, et de nombreux modules avancés.	Professionnels de la sécurité (pénétrateurs), équipes de développement sécurisé.
 
-🛠️ Composants Clés de Burp Suite
+Composants Clés de Burp Suite
 
 Burp Suite est un ensemble d'outils interconnectés. Les trois composants que vous utiliserez le plus sont le Proxy, le Repeater et l'Intruder.
 
-1. ⚙️ Proxy (Le Cœur de Burp)
+1.  Proxy (Le Cœur de Burp)
 
 Le Proxy est le composant fondamental de Burp. Il agit comme un intermédiaire entre votre navigateur web et le serveur de l'application cible.
 
@@ -91,7 +91,7 @@ Fonction	Description
 Intercept	Activation/Désactivation de l'interception des requêtes/réponses.
 History	Journal de toutes les requêtes et réponses qui sont passées par le proxy, même si elles n'ont pas été interceptées.
 
-2. 🔁 Repeater (Répétiteur)
+2.  Repeater (Répétiteur)
 
 Le Repeater est conçu pour la modification manuelle et répétitive d'une seule requête HTTP.
 
@@ -103,7 +103,7 @@ Le Repeater est conçu pour la modification manuelle et répétitive d'une seule
 
         Test de vulnérabilités d'autorisation ou de contournement de filtre.
 
-3. 💣 Intruder (Intrus)
+3.  Intruder (Intrus)
 
 L'Intruder est un outil puissant pour automatiser des attaques répétitives et personnalisables. Il prend une requête de base et la répète avec des listes de charges utiles (payloads) insérées à des points spécifiques.
 

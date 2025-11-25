@@ -45,8 +45,6 @@ nav:
       - '📜 Nmap': Tools/nmap.md
       - '📜 OpenSSL': Tools/openssl.md
       - '📜 Burp Suite': Tools/burpsuite.md
-      :
-
   - 🌐 Root-Me:
       - Programmation:
           - '📜 TCP Retour Au College': rootme/Programmation/TCP-RetourAuCollege.md

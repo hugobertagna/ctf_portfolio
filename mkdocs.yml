@@ -7,37 +7,45 @@ theme:
   language: fr
   copyright: '© 2025 Hugo BERTAGNA. Tous droits réservés.'
 
-  # --- GESTION DU BOUTON CLAIR/SOMBRE ---
+  # --- LOGO & FAVICON ---
+  # Décommenter si vous avez des images dans docs/assets/
+  # logo: assets/logo.png
+  # favicon: assets/logo.png 
+
+  # --- PALETTE BICOLORE (Mode Clair/Sombre Dynamique) ---
   palette:
-    # 1. Schéma par défaut (Clair)
+    # 1. Mode Clair (Défaut)
     - scheme: default 
-      primary: indigo          # Couleur de la barre de navigation
-      accent: deep orange      # Couleur d'accentuation (liens, icônes)
       toggle:
-        icon: material/brightness-7 # Icône "Soleil" pour le mode clair
-        name: Passer au mode sombre  # Texte affiché au survol
+        icon: material/brightness-7 # Icône Soleil (Clair)
+        name: Passer au mode sombre
+      primary: indigo          # Barre de navigation principale
+      accent: deep orange      # Liens et éléments d'accentuation
 
-    # 2. Schéma alternatif (Sombre)
+    # 2. Mode Sombre (Slate)
     - scheme: slate
-      primary: black           # Couleur de la barre de navigation
-      accent: lime             # Couleur d'accentuation vive sur fond sombre
       toggle:
-        icon: material/brightness-4 # Icône "Lune" pour le mode sombre
-        name: Passer au mode clair   # Texte affiché au survol
+        icon: material/brightness-4 # Icône Lune (Sombre)
+        name: Passer au mode clair
+      primary: black           # Barre de navigation principale
+      accent: lime             # Accentuation vive sur fond noir
 
-  # --- FONCTIONNALITÉS CLÉS ---
+  # --- FONCTIONNALITÉS CLÉS (Style Moderne et Épuré) ---
   features:
-    - navigation.tabs          # Navigation principale en onglets
+    - navigation.tabs          # Navigation principale en onglets (la clé du style)
+    - navigation.tabs.sticky   # Les onglets restent visibles en défilement
     - navigation.instant       # Transitions de page rapides
     - navigation.expand        # Les sections restent ouvertes dans la barre latérale
     - navigation.top           # Bouton "Retour en haut"
+    - navigation.footer        # Liens Précédent/Suivant en bas de page
+    - toc.follow               # La Table des Matières suit le défilement
     - content.code.copy        # Bouton "Copier" sur les blocs de code
     - content.tabs             # Support pour les blocs de contenu à onglets
-    - toc.follow               # La Table des Matières suit le défilement
     - search.suggest           # Suggestions de recherche
     - search.highlight         # Surlignage du texte trouvé
+    - search.share             # Ajoute le bouton de partage
 
-# --- EXTENSIONS MARKDOWN (Richesse du Contenu) ---
+# --- EXTENSIONS MARKDOWN ---
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
@@ -53,11 +61,11 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
 
-# --- STRUCTURE DE LA DOCUMENTATION (Navigation) ---
+# --- STRUCTURE DE LA DOCUMENTATION (Navigation sans emojis sur les onglets principaux) ---
 nav:
-  - 🏠 Accueil: index.md
+  - Accueil: index.md
   
-  - 🔧 Tools:
+  - Tools:
       - '📜 Commande Linux': Tools/commande-linux.md
       - '📜 John The Ripper': Tools/johntheripper.md
       - '📜 Gobuster': Tools/gobuster.md
@@ -65,7 +73,7 @@ nav:
       - '📜 OpenSSL': Tools/openssl.md
       - '📜 Burp Suite': Tools/burpsuite.md
       
-  - 🌐 Root-Me:
+  - Root-Me:
       - Programmation:
           - '📜 TCP Retour Au College': rootme/Programmation/TCP-RetourAuCollege.md
           - '📜 TCP Chaine Encodée': rootme/Programmation/TCP-ChaineEncodee.md
@@ -74,11 +82,11 @@ nav:
       - Systeme:
           - '📜 Bash System 1': rootme/Systeme/Bash-System1.md
           
-  - 🌐 TryHackMe:
+  - TryHackMe:
       - 'WebHacking':
           - '📜 Pickle Rick': tryhackme/WebHacking/PickleRick.md
 
-  - '📗 Cours et TP':
+  - Cours et TP:
       - Cybersécurité:
           - '📜 Notions de base': cours-TP/cybersecurite/notions_de_base.md
           - '📜 TD - Social Engineering': cours-TP/cybersecurite/TD_Social_Engineering.md

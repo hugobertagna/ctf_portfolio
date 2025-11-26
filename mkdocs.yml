@@ -58,6 +58,9 @@ nav:
           - '📜 Pickle Rick': tryhackme/WebHacking/PickleRick.md
 
   - '📗 Cours et TP':
+      - Language:
+          - C:
+                - '📜 Base du C' : cours-TP/Language/C/base_du_c.md
       - Cybersécurité:
           - '📜 Notions de base': cours-TP/cybersecurite/notions_de_base.md
           - '📜 TD - Social Engineering': cours-TP/cybersecurite/TD_Social_Engineering.md

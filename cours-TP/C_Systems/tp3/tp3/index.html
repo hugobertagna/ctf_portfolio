@@ -1,0 +1,2115 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://hugobertagna.github.io/ctf_portfolio/cours-TP/C_Systems/tp3/tp3/">
+      
+      
+        <link rel="prev" href="../../tp2/tp2/">
+      
+      
+        <link rel="next" href="../../tpa/tpa/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>📜 TP 3 : Docker - Hugo BERTAGNA - Doc Website</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#linux-td3-docker" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../../.." title="Hugo BERTAGNA - Doc Website" class="md-header__button md-logo" aria-label="Hugo BERTAGNA - Doc Website" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Hugo BERTAGNA - Doc Website
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              📜 TP 3 : Docker
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/hugobertagna/ctf_portfolio" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  🏠 Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Tools/commande-linux/" class="md-tabs__link">
+          
+  
+  
+  🔧 Tools
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../rootme/Programmation/TCP-RetourAuCollege/" class="md-tabs__link">
+          
+  
+  
+  🌐 Root-Me
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../tryhackme/WebHacking/PickleRick/" class="md-tabs__link">
+          
+  
+  
+  🌐 TryHackMe
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../Language/C/base_du_c/" class="md-tabs__link">
+          
+  
+  
+  📗 Cours et TP
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Hugo BERTAGNA - Doc Website" class="md-nav__button md-logo" aria-label="Hugo BERTAGNA - Doc Website" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Hugo BERTAGNA - Doc Website
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/hugobertagna/ctf_portfolio" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏠 Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🔧 Tools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🔧 Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tools/commande-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 Commande Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tools/johntheripper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 John The Ripper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tools/gobuster/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 Gobuster
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tools/nmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 Nmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tools/openssl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 OpenSSL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tools/burpsuite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 Burp Suite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🌐 Root-Me
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🌐 Root-Me
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programmation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Programmation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../rootme/Programmation/TCP-RetourAuCollege/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 TCP Retour Au College
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../rootme/Programmation/TCP-ChaineEncodee/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 TCP Chaine Encodée
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Steganographie
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Steganographie
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../rootme/Steganographie/TwitterSecrt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 Twitter Secret Message
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systeme
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Systeme
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../rootme/Systeme/Bash-System1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 Bash System 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🌐 TryHackMe
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🌐 TryHackMe
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WebHacking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    WebHacking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tryhackme/WebHacking/PickleRick/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 Pickle Rick
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📗 Cours et TP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    📗 Cours et TP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Language
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Language
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1_1" id="__nav_5_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Language/C/base_du_c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 Base du C
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cybersécurité
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cybersécurité
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cybersecurite/notions_de_base/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 Notions de base
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cybersecurite/TD_Social_Engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 TD - Social Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systèmes C
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Systèmes C
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tp1/tp1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 TP 1 - Apache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tp2/tp2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 TP 2 : MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 TP 3 : Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tpa/tpa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 TP A : Gestion des processus sous Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tpb/tpb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 TP B : Communication Inter Processus I
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tpc/tpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 TP C : Communication Inter Processus II
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tpd/tpd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 TP D : Les Fichiers et périphériques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="linux-td3-docker">Linux TD3 – Docker</h1>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ip<span class="w"> </span>vm<span class="w"> </span>:<span class="w"> </span><span class="m">172</span>.18.90.126
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>login<span class="w"> </span>:<span class="w"> </span>user
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>passw<span class="w"> </span>:<span class="w"> </span>User@dmin!
+</code></pre></div>
+<h1 id="2-origines-de-conteneurs">2 . Origines de conteneurs</h1>
+<h3 id="a-quest-ce-quune-jails">a) Qu’est-ce qu’une « jails » ?</h3>
+<p>Une jail est une fonctionnalité permettant de créer des environnements isolés. </p>
+<h3 id="b-dans-quels-cadres-utilise-t-on-les-jails">b) Dans quels cadres utilise-t-on les « jails » ?</h3>
+<p>On les utilises pour isolé et sécuriser des services.
+Ou bien créer des environnements de développement</p>
+<h3 id="c-quel-est-lequivalent-des-jails-sous-linux">c) Quel est l’équivalent des « jails » sous Linux ?</h3>
+<p>L'équivalent sous linux : 
+- chroot
+- CGROUP</p>
+<h3 id="d-quest-ce-quun-cgroup-sous-linux">d) Qu’est-ce qu’un CGROUP sous Linux ?</h3>
+<p>C'est une fonctionnalité permettant d elimiter et mesurer l'utilisations des ressources.
+Permet de limiter des conteneurs (conteneurs A = 2 GO de RAM)</p>
+<h1 id="3-les-conteneurs">3 . Les conteneurs</h1>
+<h3 id="a-quel-est-le-principe-de-la-conteneurisation">a) Quel est le principe de la conteneurisation ?</h3>
+<p>Le principe est d'isoler une application et toutes ses dépendances.</p>
+<h3 id="b-quel-est-la-difference-essentielle-entre-un-conteneur-et-une-vm">b) Quel est la différence essentielle entre un conteneur et une VM ?</h3>
+<ul>
+<li>La VM virtualise le matériel physique, avec l'OS qui tourne et rend lent a démarrer</li>
+<li>Le conteneur virtualise l'OS, les contenenur partagent le noyaux de l'oS incluant seulement l'application et les dépendances, elles sont plus rapides et légers à démarrer.</li>
+</ul>
+<h3 id="c-quels-sont-les-differents-types-de-conteneur-existant">c) Quels sont les différents types de conteneur existant ?</h3>
+<ul>
+<li>Conteneur d'application : Docker</li>
+<li>Conteneur de système : LXC </li>
+</ul>
+<h3 id="d-realiser-linsatllation-de-docker-sur-votre-vm-lister-les-commandes-utilisees">d) Réaliser l'insatllation de Docker sur votre VM. Lister les commandes utilisées.</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>dnf-utils<span class="w"> </span><span class="c1"># installer les outils</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--add-repo<span class="w"> </span>https://download.docker.com/linux/centos/docker-ce.repo<span class="w"> </span><span class="c1"># ajout du dépot docker</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>docker-ce<span class="w"> </span>docker-ce-cli<span class="w"> </span>containerd.io<span class="w"> </span>docker-buildx-plugin<span class="w"> </span>docker-compose-plugin<span class="w"> </span><span class="c1">#installer les paquets docker</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>docker<span class="w"> </span><span class="c1">#demarrer docker</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>docker
+</code></pre></div>
+<h3 id="e-qui-peux-executer-docker-sur-votre-machine-expliquez-les-risques-que-cela-impose">e) Qui peux exécuter docker sur votre machine, expliquez les risques que cela impose ?</h3>
+<p>L'utilisateur "root" et les utilisateur sudo</p>
+<h3 id="f-donner-lautorisation-a-lutilisateur-user-dutiliser-docker">f)  Donner l'autorisation à l'utilisateur user d'utiliser docker ?</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>newgrp<span class="w"> </span>docker
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>docker<span class="w"> </span>user
+</code></pre></div>
+<h3 id="g-donnez-les-definitions-pour-les-termes-suivants">g) Donnez les définitions pour les termes suivants :</h3>
+<p>Image : Un template léger autonomme contenant ce qui est nécessaire pour exécuter une application.</p>
+<p>Conteneur : Un instance en cours d'execution d'une Image, il est isolé.</p>
+<p>Registre : Une service de stockage et de distribution pour les images Docker.</p>
+<p>Dockerfile : Un fichier texte contenant toutes les instrucitons nécessaires pour build une image</p>
+<p>Docker Compose :  Un outil permettant de définir et d'executer des application docjer multi contenenurs</p>
+<p>Docker Hub : Le registre public par défaut géré par docker.</p>
+<h3 id="hdonnez-deux-commandes-differentes-permettant-de-lister-les-images">h)Donnez deux commandes différentes permettant de lister les images ?</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>images
+</code></pre></div>
+<h3 id="i-que-permettent-dobtenir-les-commandes-suivantes">i) Que permettent dobtenir les commandes suivantes :</h3>
+<p>docker info : Affiche des info détaillé de l'environnement
+docker ps : afficher les contenneurs en cours d'exécution
+docker ps -a : affiche tous les conteneurs
+docker image : affiche toutes les images téléchargées et construites</p>
+<h1 id="4-creation-dun-conteneneur-docker">4. Création d'un conteneneur Docker</h1>
+<h3 id="a-recuperer-limage-almalinux-en-version-94-minimal-depuis-un-registry-docker-hub-ou-autre-quelle-commande-avez-vous-utiliser">a) Récupérer l'image Almalinux en version 9.4 minimal depuis un registry (docker hub ou autre ). Quelle commande avez-vous utiliser ?</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>pull<span class="w"> </span>almalinux:9.4-minimal
+</code></pre></div>
+<h3 id="b-quelle-commande-vous-permet-de-lister-les-images-docker-en-local">b) Quelle commande vous permet de lister les images docker en local ?</h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span>images
+</code></pre></div>
+<img alt="alt text" src="../image.png" /></p>
+<h3 id="c-creer-un-conteneur-a-partir-de-limage-almalinux-en-version-94-minimal-quelle-commande-avez-vous-utiliser">c) Créer un conteneur à partir de l'image Almalinux en version 9.4 minimal. Quelle commande avez-vous utiliser ?</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span>run<span class="w"> </span>almalinux:9.4-minimal
+</code></pre></div>
+<h3 id="d-arreter-le-conteneur-que-vous-venez-de-creer-lance-le-a-nouveau-mais-en-mode-interactif-quelle-commande-avez-vous-utiliser">d) Arrêter le conteneur que vous venez de créer. Lancé le à nouveau mais en mode interactif. Quelle commande avez-vous utiliser ?</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker<span class="w"> </span>stop<span class="w"> </span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>my_almashell<span class="w"> </span>almalinux:9.4-minimal<span class="w"> </span>
+</code></pre></div>
+<h3 id="e-la-commande-docker-run-permet-de-creer-un-conteneur-quels-sont-les-options-que-vous-avez-utilise-pour-creer-le-conteneur">e) La commande docker run permet de créer un conteneur. Quels sont les options que vous avez utilisé pour créer le conteneur ?</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>
+</code></pre></div>
+<h3 id="e-creer-deux-conteneurs-avec-les-caracteristiques-suivantes-quelles-commandes-avez-vous-utiliser">e) Créer deux conteneurs avec les caractéristiques suivantes, Quelles commandes avez vous utiliser :</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">#contenenur 1</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>conteneur1<span class="w"> </span>almalinux:9.4-minimal-20240923<span class="w"> </span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1">#conteneur 2 </span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>conteneur2<span class="w"> </span>almalinux:9.4-minimal-20240923
+</code></pre></div>
+<h3 id="f-supprimez-le-conteneur-que-vous-venez-de-creer-quelle-commande-avez-vous-utiliser">f)  Supprimez le conteneur que vous venez de créer. Quelle commande avez-vous utiliser ?</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>docker<span class="w"> </span>rm<span class="w"> </span>conteneur1
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>docker<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>conteneur2
+</code></pre></div>
+<h3 id="g-lancez-un-nouveau-conteneur-httpd-avec-la-commande-suivante">g) Lancez un nouveau conteneur httpd avec la commande suivante :</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>docker<span class="w"> </span>log<span class="w"> </span>web
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w"> </span><span class="sb">```</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c1">### h) A quoi correspond le périphérique docker0 lorsque vous fait un ip addr sur votre VM ?</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>c<span class="s1">&#39;est un router virtuel </span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="s1">### i) Quelle commande permet de lancer un conteneur et de le détruire une fois qu&#39;</span>il<span class="w"> </span>est<span class="w"> </span>arrêté<span class="w"> </span>?
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="sb">```</span>bash
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>docker<span class="w"> </span>run<span class="w"> </span>-rm
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w"> </span><span class="sb">```</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="c1">### j) Il existe 2 solutions pour créer une nouvelle image d&#39;un conteneur docker. Quelles sont-elles ?</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>Les<span class="w"> </span>deux<span class="w"> </span>méthodes<span class="w"> </span>:<span class="w"> </span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">    </span>-Dockerfile
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">    </span>-Docker<span class="w"> </span>commit
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="c1"># 5. Création d&#39;un fichier Dockerfile</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="c1">### a) A quoi sert la commande FROM dans un Dockerfile ?</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>FROM<span class="w"> </span>sert<span class="w"> </span>a<span class="w"> </span>définir<span class="w"> </span>l<span class="err">&#39;</span>image<span class="w"> </span>de<span class="w"> </span>base
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="c1">### b)  A quoi sert la commande COPY dans un Dockerfile ?</span>
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>COPY<span class="w"> </span>sert<span class="w"> </span>a<span class="w"> </span>copier<span class="w"> </span>les<span class="w"> </span>ficheier<span class="w"> </span>et<span class="w"> </span>répertoires<span class="w"> </span>depuis<span class="w"> </span>votre<span class="w"> </span>machine<span class="w"> </span>locale
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="c1">### c) A quoi correspond le répertoire public-html ?</span>
+<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>Le<span class="w"> </span>repertoir<span class="w"> </span>correspond<span class="w"> </span>au<span class="w"> </span>dossier<span class="w"> </span><span class="nb">source</span><span class="w"> </span>sur<span class="w"> </span>ma<span class="w"> </span>machine<span class="w"> </span>local,<span class="w"> </span>il<span class="w"> </span>contient<span class="w"> </span>les<span class="w"> </span>ficheirs<span class="w"> </span>statiques<span class="w"> </span>de<span class="w"> </span>site<span class="w"> </span>web<span class="w"> </span>par<span class="w"> </span>exemple
+<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="c1">### d) Créer un fichier Dockerfile avec le contenu suivant :</span>
+<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="sb">```</span>bash
+<a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>mkdir<span class="w"> </span>dossier-html
+<a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>nano<span class="w"> </span>Dockerfile
+<a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a>nano<span class="w"> </span>dossier-html/index.html
+</code></pre></div>
+<h3 id="e-creer-une-image-a-partir-du-dockerfile-que-vous-venez-de-creer-quelle-commande-avez-vous-utiliser">e) Créer une image à partir du Dockerfile que vous venez de créer. Quelle commande avez-vous utiliser ?</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>serveurweb<span class="w"> </span>
+</code></pre></div>
+<h3 id="f-a-quoi-sert-la-commande-run-dans-un-dockerfile">f) A quoi sert la commande RUN dans un Dockerfile ?</h3>
+<p>La commande RUN permet d'executer les commandes nécessaire lors de la construction de l'image</p>
+<h3 id="g-a-quoi-sert-la-commande-label-dans-un-dockerfile">g) A quoi sert la commande LABEL dans un Dockerfile ?</h3>
+<p>LAbel permet d'ajouter des métadonnées à l'images</p>
+<h1 id="6-versionning-dune-image-docker">6. Versionning d'une image Docker</h1>
+<h3 id="a-quelle-commande-permet-de-taguer-une-image-docker">a) Quelle commande permet de taguer une image docker ?</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>docker<span class="w"> </span>tag<span class="w"> </span>
+</code></pre></div>
+<h3 id="b-quelle-commande-permet-de-pousser-une-image-docker-sur-un-registre-docker">b) Quelle commande permet de pousser une image docker sur un registre docker ?</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>docker<span class="w"> </span>push
+</code></pre></div>
+<h3 id="c-quelle-commande-permet-de-lister-les-images-dun-registre-docker">c)  Quelle commande permet de lister les images d'un registre docker ?</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>curl<span class="w"> </span>-u<span class="w"> </span>ICS:123456+Aze<span class="w"> </span>http://harbor.pedago.ad.supalta.com/api/v2.0/projects/
+</code></pre></div>
+<h3 id="dtaguer-votre-image-webserver-avec-le-tag-latest-et-la-pousser-sur-le-registre-harborpedagoadsupaltacom">d)Taguer votre image webserver avec le tag latest et la pousser sur le registre harbor.pedago.ad.supalta.com ?</h3>
+<p><img alt="alt text" src="../image-1.png" /></p>
+<h3 id="e-modifier-votre-site-web-statique-et-effectuer-une-mise-a-jour-de-lensemble-et-pousser-votre-site-web-sur-le-registry-detaillez-les-etapes-ainsi-que-les-commandes">e) Modifier votre site web statique et effectuer une mise à jour de l'ensemble et pousser votre site web sur le registry. Détaillez les étapes ainsi que les commandes ?</h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>serveurweb:v2<span class="w"> </span>.
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>docker<span class="w"> </span>tag<span class="w"> </span>serveurweb:v2<span class="w"> </span>harbor.pedago.ad.supalta.com/3ics/bertagna/serveurweb:v2
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>docker<span class="w"> </span>push<span class="w"> </span>harbor.pedago.ad.supalta.com/3ics/bertagna/serveurweb:v2*
+</code></pre></div>
+<img alt="alt text" src="../image-2.png" /></p>
+<h1 id="7-creation-dune-stack-apache-php-fpm-mysql">7. Création d'une stack Apache / Php FPM/ MySQL</h1>
+<h3 id="a-quel-est-le-role-de-la-commande-build">a)  Quel est le role de la commande build</h3>
+<p>Le role de la command ebuild lit le fichier docker-compose.yml et Dockerfile</p>
+<h3 id="bquel-est-le-role-de-la-commande-up-pourquoi-utilise-t-on-loption-d">b)Quel est le role de la commande up? Pourquoi utilise-t-on l'option -d ?</h3>
+<p>La commande UP permet de demarrer les conteneur du fichier docker-compose.yml</p>
+<h3 id="cquel-est-le-role-de-la-commande-down-pourquoi-utilise-t-on-loption-volume">c)Quel est le role de la commande down? Pourquoi utilise-t-on l'option --volume?</h3>
+<p>la commande DOWN permet d'arreter et supprimer les coneteneur</p>
+<h3 id="dlancez-la-stack-avec-la-commande-docker-compose-up-d-quobservez-vous-au-premier-lancement">d)Lancez la stack avec la commande docker compose up -d. Qu'observez vous au premier lancement ?</h3>
+<p>J'observe que docker compile sur la vm </p>
+<h3 id="eutilisez-la-commande-docker-compose-ps-quobservez-vous">e)Utilisez la commande docker compose ps. Qu'observez vous ?</h3>
+<p><img alt="alt text" src="../image-3.png" /></p>
+<h3 id="fdans-la-colonne-ports-que-signifie-la-ligne-9000tcp-que-signifie-la-ligne-00008080-80tcp">f)Dans la colonne PORTS que signifie la ligne 9000/tcp? Que signifie la ligne 0.0.0.0:8080-&gt;80/tcp</h3>
+<p>La ligne 9000/ est le port exposé à l'intérieur du réseau docker.
+0.0.0.0:8080-&gt;80/tcp est un redirection de port</p>
+<h3 id="g-la-colonne-names-contient-le-nom-des-differents-conteneurs-comment-est-constitue-le-nom-de-chacun-des-conteneurs">g) La colonne NAMES contient le nom des différents conteneurs. Comment est constitué le nom de chacun des conteneurs ?</h3>
+<p>$$\text{Nom du dossier de la stack} + \text{'<em>'} + \text{Nom du service} + \text{'</em>'} + \text{Numéro d'instance}$$</p>
+<h3 id="hpourquoi-utilise-t-on-la-directive-build-pour-les-services-php-fpm-et-apache-httpd-au-lieu-de-limage-de-base">h)Pourquoi utilise-t-on la directive build pour les services php-fpm et apache-httpd au lieu de l'image de base ?</h3>
+<p>Pour ajouter des fichier de configuration spécifique </p>
+<h3 id="ia-quoi-servent-les-volumes-montes-dans-chaque-service-que-ce-passerait-il-en-absence-de-cette-directive-quelle-autre-solution-serait-utilisable-a-la-place-du-montage-de-volume-detaillez-votre-reponse-pour-le-conteneur-apache-httpd-et-mariadb-uniquement">i)À quoi servent les volumes montés dans chaque service ? Que ce passerait-il en absence de cette directive ? Quelle autre solution serait utilisable a la place du montage de volume ? Détaillez votre réponse pour le conteneur apache-httpd et mariadb uniquement.</h3>
+<p>Les volumes montés assurent la persistance des données et la synchronisation du code source.
+|nom  | ROle du volume | Autre solution |
+| ----| ---------------|---------------|
+|httpd|Reference le dossier de code|commande copy dans le dockerfile|
+|mariadb|Assurer la persistance des données| utiliser un volume nommé géré par docker|</p>
+<h3 id="j-pourquoi-le-service-apache-httpd-depend-il-de-php-fpm-et-mariadb">j) Pourquoi le service apache-httpd dépend-il de php-fpm et mariadb ?</h3>
+<p>php-fpm : Car il transmet les requetes de fichier php à 9000/tcp car il ne peut pas traiter lui meme </p>
+<p>mariadb : l'application php ne peut pas fonctionner sans base de donnée.</p>
+<h3 id="k-comment-pouvez-vous-verifier-que-le-conteneur-apache-httpd-repond-correctement-et-quil-sagit-bien-de-votre-conteneur">k) Comment pouvez vous vérifier que le conteneur apache-httpd répond correctement et qu'il s'agit bien de votre conteneur ?</h3>
+<p><img alt="alt text" src="../image-4.png" /></p>
+<h3 id="l-comment-configurer-apache-pour-utiliser-https">l) Comment configurer apache pour utiliser HTTPS ?</h3>
+<p>Il faut :
+1. Inclure les cerificats
+2. Activer le module ssl
+3. configurer le Virtual Host
+4. Mapper le port</p>
+<h3 id="mil-existe-au-moins-3-methodes-pour-lister-les-db-presentes-dans-le-conteneur-mariadb-donnez-les-3-methodes-avec-la-copie-des-commandes-ou-des-configurations-des-outils-utilises">m)Il existe au moins 3 méthodes pour lister les DB présentes dans le conteneur mariadb. Donnez les 3 méthodes avec la copie des commandes ou des configurations des outils utilisés.</h3>
+<ol>
+<li>docker exec : Exécute directement la commande mariadb à l'inteérieur du conteneur database.</li>
+<li>Client externe : Utilise un client mariadb sur le port 3306</li>
+<li>Interface Adminer : lo'util se connecte au service mariadb via le réseau docker et affiche les db dans un interface</li>
+</ol>
+<h3 id="nquelles-sont-les-db-presentes-et-comment-ont-elles-ete-crees">n)Quelles sont les DB présentes et comment ont-elles été crées ?</h3>
+<p><img alt="alt text" src="../image-5.png" /></p>
+<h3 id="oquel-est-le-role-du-conteneur-adminer-donnez-les-parametres-que-vous-avez-fournis-a-cette-application-web-pour-vous-connecter">o)Quel est le rôle du conteneur adminer. Donnez les paramètres que vous avez fournis a cette application Web pour vous connecter.</h3>
+<p>Adminer permet d'administrer via une interface les DB.
+<img alt="alt text" src="../image-6.png" />
+MDP : 123+aze</p>
+<h3 id="pa-quoi-sert-le-volume-initdocker-entrypoint-initdbd-pour-mariadb">p)À quoi sert le volume ./init:/docker-entrypoint-initdb.d pour mariaDB ?</h3>
+<p>le volume permet l'initialisation automatique de la BDD  au lancement</p>
+<h3 id="q-pourquoi-expose-t-on-le-port-33306-pour-mariadb-quels-sont-les-risques-corrigez-le-fichier-pour-que-le-port-33306-ne-soit-plus-expose-et-relancez-la-stack">q) Pourquoi expose-t-on le port 33306 pour mariadb ? Quels sont les risques ? Corrigez le fichier pour que le port 33306 ne soit plus exposé et relancez la stack.</h3>
+<p>On expose le port 33306 pour l'accès à la BDD
+commenter la ligne port de mariadb</p>
+<h3 id="rcomment-communiquent-les-differents-conteneurs-de-la-stack-donnez-la-commande-permettant-de-voir-la-configuration-reseau-de-la-stack">r)Comment communiquent les différents conteneurs de la stack. Donnez la commande permettant de voir la configuration réseau de la stack.</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="o">[</span>user@localhost<span class="w"> </span>stack<span class="o">]</span>$<span class="w"> </span>docker<span class="w"> </span>network<span class="w"> </span>ls
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>NETWORK<span class="w"> </span>ID<span class="w">     </span>NAME<span class="w">            </span>DRIVER<span class="w">    </span>SCOPE
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>8b20684ba00e<span class="w">   </span>bridge<span class="w">          </span>bridge<span class="w">    </span><span class="nb">local</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>ebf24f4da0fa<span class="w">   </span>host<span class="w">            </span>host<span class="w">      </span><span class="nb">local</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>c0eced742cda<span class="w">   </span>none<span class="w">            </span>null<span class="w">      </span><span class="nb">local</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>75effdecef99<span class="w">   </span>stack_default<span class="w">   </span>bridge<span class="w">    </span><span class="nb">local</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="o">[</span>user@localhost<span class="w"> </span>stack<span class="o">]</span>$<span class="w"> </span>docker<span class="w"> </span>network<span class="w"> </span>ls
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>NETWORK<span class="w"> </span>ID<span class="w">     </span>NAME<span class="w">            </span>DRIVER<span class="w">    </span>SCOPE
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>8b20684ba00e<span class="w">   </span>bridge<span class="w">          </span>bridge<span class="w">    </span><span class="nb">local</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>ebf24f4da0fa<span class="w">   </span>host<span class="w">            </span>host<span class="w">      </span><span class="nb">local</span>
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>c0eced742cda<span class="w">   </span>none<span class="w">            </span>null<span class="w">      </span><span class="nb">local</span>
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>75effdecef99<span class="w">   </span>stack_default<span class="w">   </span>bridge<span class="w">    </span><span class="nb">local</span>
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="o">[</span>user@localhost<span class="w"> </span>stack<span class="o">]</span>$<span class="w"> </span>docker<span class="w"> </span>network<span class="w"> </span>inspect<span class="w"> </span>host
+<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="o">[</span>
+<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="w">    </span><span class="o">{</span>
+<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="w">        </span><span class="s2">&quot;Name&quot;</span>:<span class="w"> </span><span class="s2">&quot;host&quot;</span>,
+<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="w">        </span><span class="s2">&quot;Id&quot;</span>:<span class="w"> </span><span class="s2">&quot;ebf24f4da0fae47e06d86d56d2c764963ed9a8ff848f19cb59a418490c003c01&quot;</span>,
+<a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="w">        </span><span class="s2">&quot;Created&quot;</span>:<span class="w"> </span><span class="s2">&quot;2025-10-20T06:24:32.191586925Z&quot;</span>,
+<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="w">        </span><span class="s2">&quot;Scope&quot;</span>:<span class="w"> </span><span class="s2">&quot;local&quot;</span>,
+<a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a><span class="w">        </span><span class="s2">&quot;Driver&quot;</span>:<span class="w"> </span><span class="s2">&quot;host&quot;</span>,
+<a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a><span class="w">        </span><span class="s2">&quot;EnableIPv4&quot;</span>:<span class="w"> </span>true,
+<a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a><span class="w">        </span><span class="s2">&quot;EnableIPv6&quot;</span>:<span class="w"> </span>false,
+<a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a><span class="w">        </span><span class="s2">&quot;IPAM&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a><span class="w">            </span><span class="s2">&quot;Driver&quot;</span>:<span class="w"> </span><span class="s2">&quot;default&quot;</span>,
+<a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a><span class="w">            </span><span class="s2">&quot;Options&quot;</span>:<span class="w"> </span>null,
+<a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a><span class="w">            </span><span class="s2">&quot;Config&quot;</span>:<span class="w"> </span>null
+<a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a><span class="w">        </span><span class="o">}</span>,
+<a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a><span class="w">        </span><span class="s2">&quot;Internal&quot;</span>:<span class="w"> </span>false,
+<a id="__codelineno-17-29" name="__codelineno-17-29" href="#__codelineno-17-29"></a><span class="w">        </span><span class="s2">&quot;Attachable&quot;</span>:<span class="w"> </span>false,
+<a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a><span class="w">        </span><span class="s2">&quot;Ingress&quot;</span>:<span class="w"> </span>false,
+<a id="__codelineno-17-31" name="__codelineno-17-31" href="#__codelineno-17-31"></a><span class="w">        </span><span class="s2">&quot;ConfigFrom&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-17-32" name="__codelineno-17-32" href="#__codelineno-17-32"></a><span class="w">            </span><span class="s2">&quot;Network&quot;</span>:<span class="w"> </span><span class="s2">&quot;&quot;</span>
+<a id="__codelineno-17-33" name="__codelineno-17-33" href="#__codelineno-17-33"></a><span class="w">        </span><span class="o">}</span>,
+<a id="__codelineno-17-34" name="__codelineno-17-34" href="#__codelineno-17-34"></a><span class="w">        </span><span class="s2">&quot;ConfigOnly&quot;</span>:<span class="w"> </span>false,
+<a id="__codelineno-17-35" name="__codelineno-17-35" href="#__codelineno-17-35"></a><span class="w">        </span><span class="s2">&quot;Containers&quot;</span>:<span class="w"> </span><span class="o">{}</span>,
+<a id="__codelineno-17-36" name="__codelineno-17-36" href="#__codelineno-17-36"></a><span class="w">        </span><span class="s2">&quot;Options&quot;</span>:<span class="w"> </span><span class="o">{}</span>,
+<a id="__codelineno-17-37" name="__codelineno-17-37" href="#__codelineno-17-37"></a><span class="w">        </span><span class="s2">&quot;Labels&quot;</span>:<span class="w"> </span><span class="o">{}</span>
+<a id="__codelineno-17-38" name="__codelineno-17-38" href="#__codelineno-17-38"></a><span class="w">    </span><span class="o">}</span>
+<a id="__codelineno-17-39" name="__codelineno-17-39" href="#__codelineno-17-39"></a><span class="o">]</span>
+</code></pre></div>
+<h3 id="sadaptez-le-fichier-docker-compose-etou-le-script-php-pour-pouvoir-afficher-la-liste-des-villes-de-lespagne-donnez-la-nouvelle-version-de-vos-fichiers-et-script-et-une-copie-decran-de-la-liste-des-villes">s)Adaptez le fichier docker-compose et/ou le script PHP pour pouvoir afficher la liste des villes de l'Espagne. Donnez la nouvelle version de vos fichiers et script et une copie d'écran de la liste des villes.</h3>
+<p>Docker a plante : 
+Faire : 
+    - docker compose up -d --build
+Dans stack/public/index.html
+http://localhost:8080/index.php</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="o">&lt;?</span><span class="nx">php</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="k">function</span> <span class="nf">getCitiesFromCode</span><span class="p">(</span> <span class="nx">String</span> <span class="nv">$code</span><span class="p">)</span> <span class="o">:</span> <span class="k">Array</span> <span class="p">{</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>    <span class="nv">$cnx</span><span class="o">=</span><span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s2">&quot;mysql:host=mariadb;dbname=worldDB&quot;</span><span class="p">,</span> <span class="s2">&quot;root&quot;</span><span class="p">,</span> <span class="s2">&quot;123+aze&quot;</span><span class="p">);</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>    <span class="nv">$SQL</span><span class="o">=</span><span class="s2">&quot;SELECT * FROM city WHERE CountryCode=:code  &quot;</span><span class="p">;</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>    <span class="nv">$preparedStatement</span> <span class="o">=</span> <span class="nv">$cnx</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$SQL</span><span class="p">)</span> <span class="p">;</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>    <span class="nv">$preparedStatement</span><span class="o">-&gt;</span><span class="na">bindValue</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="nv">$code</span><span class="p">);</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>    <span class="nv">$preparedStatement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>    <span class="nv">$cities</span> <span class="o">=</span> <span class="p">[];</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>    <span class="k">while</span> <span class="p">(</span> <span class="p">(</span><span class="nv">$city</span> <span class="o">=</span> <span class="nv">$preparedStatement</span><span class="o">-&gt;</span><span class="na">fetch</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">FETCH_ASSOC</span><span class="p">))</span> <span class="o">!=</span> <span class="k">FALSE</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>        <span class="nv">$cities</span><span class="p">[]</span><span class="o">=</span><span class="nv">$city</span><span class="p">;</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>    <span class="p">}</span>
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>    <span class="k">return</span> <span class="nv">$cities</span><span class="p">;</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="p">}</span>
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="k">echo</span> <span class="s2">&quot;&lt;h1&gt;Liste des villes d&#39;Espagne (ESP)&lt;/h1&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a><span class="nv">$villes</span> <span class="o">=</span> <span class="nx">getCitiesFromCode</span><span class="p">(</span><span class="s2">&quot;ESP&quot;</span><span class="p">);</span>
+<a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a>
+<a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a><span class="k">if</span> <span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$villes</span><span class="p">))</span> <span class="p">{</span>
+<a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a>    <span class="k">echo</span> <span class="s2">&quot;&lt;p&gt;Aucune ville trouvée. Vérifiez que la table &#39;city&#39; est bien remplie dans la base de données &#39;worldDB&#39;.&lt;/p&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a>    <span class="k">echo</span> <span class="s2">&quot;&lt;ul&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a>    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$villes</span> <span class="k">as</span> <span class="nv">$ville</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a>        <span class="k">echo</span> <span class="s2">&quot;&lt;li&gt;&quot;</span> <span class="o">.</span> <span class="nb">htmlspecialchars</span><span class="p">(</span><span class="nv">$ville</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">])</span> <span class="o">.</span> <span class="s2">&quot; (&quot;</span> <span class="o">.</span> <span class="nb">htmlspecialchars</span><span class="p">(</span><span class="nv">$ville</span><span class="p">[</span><span class="s1">&#39;District&#39;</span><span class="p">])</span> <span class="o">.</span> <span class="s2">&quot;)&lt;/li&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-18-26" name="__codelineno-18-26" href="#__codelineno-18-26"></a>    <span class="p">}</span>
+<a id="__codelineno-18-27" name="__codelineno-18-27" href="#__codelineno-18-27"></a>    <span class="k">echo</span> <span class="s2">&quot;&lt;/ul&gt;&quot;</span><span class="p">;</span>
+<a id="__codelineno-18-28" name="__codelineno-18-28" href="#__codelineno-18-28"></a><span class="p">}</span>
+<a id="__codelineno-18-29" name="__codelineno-18-29" href="#__codelineno-18-29"></a><span class="cp">?&gt;</span>
+</code></pre></div>
+<img alt="alt text" src="../image-8.png" /></p>
+<h3 id="t-les-mots-de-passe-sont-en-clair-dans-le-fichier-docker-composeyml-quels-sont-les-risques-et-comment-les-attenuer">t) Les mots de passe sont en clair dans le fichier docker-compose.yml. Quels sont les risques et comment les atténuer</h3>
+<p>Risque : 
+    - Toutes les personnes ayant accès aux fichier peuvent voir les mdp
+    - En cas de fuite, tout le monde peut voir en claire les mdp</p>
+<p>Solutions : 
+    - Stocker dans un ficheir séparé (.env)
+    - Utiliser docker secrets</p>
+<h3 id="u-comment-securiser-lacces-a-adminer-et-mongo-express-en-production">u)  Comment sécuriser l’accès à Adminer et Mongo-Express en production ?</h3>
+<p>Etablir un tunnel SSH : <img alt="alt text" src="../image-7.png" />
+Controler l'accès via un accès reserver à une plage d'IP.</p>
+<p>Adminer : 
+<img alt="alt text" src="../image-9.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.instant", "navigation.expand", "content.code.copy", "navigation.top", "search.suggest", "search.highlight"], "search": "../../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

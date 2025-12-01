@@ -165,6 +165,24 @@ Les flags :  open , O_RDONLY, O_WRONLY, O_RDWR , O_CREAT, O_TRUNC , O_APPEND
 ### 9b) Que permet de faire le paramètre mode ?
 Permet de définir les parametres d'une fonction
 ### 9c)  En utilisant les fonctions précédentes, écrire un programme qui sauvegarde la valeur 19496893802562113L dans un fichier binaire. Ouvrez le fichier. Qu'observez-vous ?
+```c
+#include <stdio.h>
+#include <dirent.h>
+#include <sys/stat.h>
+#include <string.h>
+#include <fcntl.h>   
+#include <unistd.h>
+
+int main() {
+    long val1 = 19496893802562113L;
+    int fd1 = open("test.bin", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    write(fd1, &val1, sizeof(long));
+    close(fd1);
+
+    return 0;
+}
+```
+Le programme affiche ```ABSURDE```.
 
 ### 9d) Créez un programme qui enregistre la valeur 0x4142434451525354L dans un fichier, en utilisant les fonctions précédentes. Affichez la valeur avec un printf en décimal et hexadécimal ? Que contient le fichier binaire ?
 

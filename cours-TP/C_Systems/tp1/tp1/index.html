@@ -1,0 +1,3812 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://hugobertagna.github.io/ctf_portfolio/cours-TP/C_Systems/tp1/tp1/">
+      
+      
+        <link rel="prev" href="../../../cybersecurite/TD_Social_Engineering/">
+      
+      
+        <link rel="next" href="../../tp2/tp2/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>📜 TP 1 - Apache - Hugo BERTAGNA - Doc Website</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#info" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../../.." title="Hugo BERTAGNA - Doc Website" class="md-header__button md-logo" aria-label="Hugo BERTAGNA - Doc Website" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Hugo BERTAGNA - Doc Website
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              📜 TP 1 - Apache
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/hugobertagna/ctf_portfolio" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  🏠 Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Tools/commande-linux/" class="md-tabs__link">
+          
+  
+  
+  🔧 Tools
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../rootme/Programmation/TCP-RetourAuCollege/" class="md-tabs__link">
+          
+  
+  
+  🌐 Root-Me
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../tryhackme/WebHacking/PickleRick/" class="md-tabs__link">
+          
+  
+  
+  🌐 TryHackMe
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../Language/C/base_du_c/" class="md-tabs__link">
+          
+  
+  
+  📗 Cours et TP
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Hugo BERTAGNA - Doc Website" class="md-nav__button md-logo" aria-label="Hugo BERTAGNA - Doc Website" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Hugo BERTAGNA - Doc Website
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/hugobertagna/ctf_portfolio" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🏠 Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🔧 Tools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🔧 Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tools/commande-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 Commande Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tools/johntheripper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 John The Ripper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tools/gobuster/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 Gobuster
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tools/nmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 Nmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tools/openssl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 OpenSSL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tools/burpsuite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 Burp Suite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🌐 Root-Me
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🌐 Root-Me
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programmation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Programmation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../rootme/Programmation/TCP-RetourAuCollege/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 TCP Retour Au College
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../rootme/Programmation/TCP-ChaineEncodee/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 TCP Chaine Encodée
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Steganographie
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Steganographie
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../rootme/Steganographie/TwitterSecrt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 Twitter Secret Message
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systeme
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Systeme
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../rootme/Systeme/Bash-System1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 Bash System 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🌐 TryHackMe
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🌐 TryHackMe
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WebHacking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    WebHacking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tryhackme/WebHacking/PickleRick/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 Pickle Rick
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📗 Cours et TP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    📗 Cours et TP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Language
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Language
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1_1" id="__nav_5_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Language/C/base_du_c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 Base du C
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cybersécurité
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cybersécurité
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cybersecurite/notions_de_base/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 Notions de base
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cybersecurite/TD_Social_Engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 TD - Social Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systèmes C
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Systèmes C
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 TP 1 - Apache
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 TP 1 - Apache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2-desactivation-de-selinux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 - Désactivation de SELinux
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 - Désactivation de SELinux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-a-quoi-sert-ce-composant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a) A quoi sert ce composant ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-comment-peut-on-le-desactiver-momentanement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b) Comment peut-on le désactiver momentanément ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-comment-peut-on-le-desactiver-de-facon-permanente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        c) Comment peut-on le désactiver de façon permanente ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-desactivation-momentane-du-pare-feu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3- Désactivation momentané du pare-feu.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3- Désactivation momentané du pare-feu.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-quelle-commande-vous-permet-de-desactiver-temporairement-le-firewall-le-temps-de-proceder-a-la-configuration-de-la-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a) Quelle commande vous permet de désactiver temporairement le firewall, le temps de procéder a la configuration de la machine ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-quelle-commande-vous-permet-davoir-la-certitude-que-le-firewall-est-bien-inactif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b) Quelle commande vous permet d’avoir la certitude que le firewall est bien inactif ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-installation-du-service-apache-la-configuration-reseau-avance-viendra-par-la-suite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4-Installation du service Apache (La configuration réseau avancé viendra par la suite)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4-Installation du service Apache (La configuration réseau avancé viendra par la suite)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-quels-sont-les-trois-principaux-serveurs-web-disponible-sous-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a) Quels sont les trois principaux serveurs WEB disponible sous Linux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bla-commande-dnf-ou-anciennement-yum-permet-dinstaller-les-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b)La commande dnf (ou anciennement yum) permet d’installer les packages.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-demarrage-du-service-apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        c) Démarrage du service Apache
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-quelle-commande-vous-permet-davoir-la-certitude-que-le-service-apache-est-fonctionnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        d) Quelle commande vous permet d’avoir la certitude que le service Apache est fonctionnel ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e-quelles-informations-essentielles-vous-sont-fournies-par-cette-commande" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        e) Quelles informations essentielles vous sont fournies par cette commande ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-configuration-du-service-apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5- Configuration du service Apache
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5- Configuration du service Apache">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-ou-se-trouvent-les-fichiers-de-configuration-de-apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a) Ou se trouvent les fichiers de configuration de Apache ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-quelle-est-la-structure-de-ce-repertoire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b) Quelle est la structure de ce répertoire ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-ou-se-trouve-le-fichier-de-configuration-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        c) Ou se trouve le fichier de configuration principal ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-que-contient-du-point-de-vue-logique-le-repertoire-confd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        d) Que contient (du point de vue logique) le répertoire conf.d
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eque-contient-le-repertoire-confmodulesd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        e)Que contient le répertoire conf.modules.d
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-quest-ce-quun-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        f) Qu’est-ce qu’un module ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g-ou-sont-ils-stockes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        g) Ou sont-ils stockés ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#h-ou-sont-stockes-les-log-de-apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        h) Ou sont stockés les log de Apache ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-exploration-de-la-configuration-de-base-fichier-httpdconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6- Exploration de la configuration de base (fichier httpd.conf)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6- Exploration de la configuration de base (fichier httpd.conf)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-quest-ce-que-le-document-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a) Qu’est ce que le ‘DOCUMENT ROOT’ ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-sur-quel-repertoire-pointe-t-il" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b) Sur quel répertoire pointe-t-il ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-a-quoi-sert-la-directive-listen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        c) A quoi sert la directive ‘Listen’
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d-a-quoi-sert-la-declaration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        d) A quoi sert la déclaration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e-a-quoi-servent-les-directives-allowoverride-et-require" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        e) A quoi servent les directives ‘AllowOverride’ et ‘Require’ ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#f-a-quoi-sert-le-fichier-welcomeconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        f) A quoi sert le fichier welcome.conf ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#g-a-quoi-sert-la-commande-apachectl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        g) A quoi sert la commande apachectl ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-tests-et-installations-complementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 - Tests et Installations complémentaires
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-executez-la-commande-yum-install-php-y-quels-packages-sont-installes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a) Exécutez la commande yum install php -y , Quels packages sont installés ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ble-service-apache-utilise-desormais-systematiquement-le-package-php-fpm-contenant-les-elements-necessaires-pour-lexecution-de-pages-web-dynamiques-que-contient-ce-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b)Le service Apache utilise désormais systématiquement le package ‘php-fpm’ contenant les éléments nécessaires pour l’exécution de pages web dynamiques. Que contient ce package ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-comment-prouver-que-le-serveur-web-est-desormais-capable-dexecuter-du-php" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        c) Comment prouver que le serveur Web est désormais capable d’exécuter du PHP ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d-quelle-version-de-php-est-installee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        d) Quelle version de php est installée ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ecomment-connaitre-la-configuration-complete-du-serveur-web-librairies-installees-avec-leurs-versions-et-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        e)Comment connaître la configuration complète du serveur web (librairies installées, avec leurs versions et configurations?)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#f-installez-les-packages-et-donnez-le-role-des-packages-suivants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        f) Installez les packages et donnez le rôle des packages suivants :
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-configuration-avancee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8- Configuration avancée
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8- Configuration avancée">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ainstallez-le-service-vsftp-et-bien-sur-verifiez-quil-est-operationnel-quavez-vous-fait-comme-commande" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a)Installez le service vsftp, et bien sûr, vérifiez qu’il est opérationnel. Qu’avez-vous fait comme commande ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-creez-un-compte-utilisateur-nomme-web-le-repertoire-de-travail-de-lutilisateur-web-contiendra-les-dossiers-hebergeant-les-differents-sites-web-geres-par-lutilisateur-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b) Créez un compte utilisateur nommé ‘web’. Le répertoire de travail de l’utilisateur ‘web’ contiendra les dossiers hébergeant les différents sites web gérés par l’utilisateur ‘web’ :
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-un-dossier-wwwcampagnesys-pour-linstance-httpd-virtuel-qui-repondra-aux-requetes-sur-une-ip-serveur-virtuel-par-ip-cf-virtualhost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        - un dossier www.campagne.sys pour l’instance httpd virtuel qui répondra aux requêtes sur une IP (serveur virtuel par IP, cf virtualhost)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-un-dossier-wwwmontagnesys-et-wwwglaciersys-pour-linstance-httpd-virtuel-qui-repondra-aux-requetes-les-deux-domaines-hebergement-mutualise-cf-web-multi-homing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        - un dossier www.montagne.sys et www.glacier.sys pour l’instance httpd virtuel qui répondra aux requêtes les deux domaines (Hébergement mutualisé, cf web multi-homing )
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-un-dossier-wwwsommetsys-pour-tester-la-mise-en-place-dun-serveur-repondant-aux-requetes-https" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        - un dossier www.sommet.sys pour tester la mise en place d’un serveur répondant aux requêtes https.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-donnez-la-liste-des-commandes-utilisees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        - Donnez la liste des commandes utilisées.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-verifiez-que-vous-pouvez-acceder-en-lectureecriture-a-tous-les-repertoires-presents-dans-le-repertoire-homeweb-en-utilisant-un-client-ftp-comme-filezilla-donnez-les-permissions-de-homeweb-ainsi-que-celles-des-dossiers-precedemment-crees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        c) Vérifiez que vous pouvez accéder en lecture/écriture a tous les répertoires présents dans le répertoire /home/web en utilisant un client ftp comme FileZilla. Donnez les permissions de /home/web ainsi que celles des dossiers précédemment créés
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-configuration-reseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9 - Configuration réseau :
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9 - Configuration réseau :">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-configurer-votre-carte-reseau-avec-lip-fixe-17218xx516-en-utilisant-nmtui-et-donnez-le-contenu-du-fichier-etcnetworkmanagersystem-connectionsens192nmconnection-ens192-correspond-au-nom-de-la-carte-reseau-elle-peut-changer-selon-le-contexte-de-deploiement-de-la-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a) Configurer votre carte réseau avec l’IP fixe 172.18.xx.5/16 en utilisant nmtui et donnez le contenu du fichier /etc/NetworkManager/system-connections/ens192.nmconnection (ens192 correspond au nom de la carte réseau, elle peut changer selon le contexte de déploiement de la VM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ba-quoi-sert-la-commande-nmcli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b)A quoi sert la commande nmcli
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-a-quoi-sert-la-commande-nmcli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        c) A quoi sert la commande nmcli
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-a-quoi-sert-le-fichier-etcresolvconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        d) A quoi sert le fichier /etc/resolv.conf ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e-que-devez-vous-faire-comme-tests-pour-verifier-la-connectivite-de-votre-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        e) Que devez-vous faire comme tests pour vérifier la connectivité de votre VM ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-votre-machine-peut-elle-joindre-wwwfreefr-quelle-commande-avez-vous-utilisez-pour-le-verifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        f) Votre machine peut-elle joindre www.free.fr ? Quelle commande avez vous utilisez pour le vérifier ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g-votre-vm-peut-elle-etre-jointe-par-lun-de-vos-collegues-si-non-pourquoi-quels-tests-avez-vous-effectues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        g) Votre VM peut-elle être jointe par l’un de vos collègues ? Si non, pourquoi ? Quels tests avez-vous effectués ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-ip-virtuelles-pour-les-serveurs-virtuels-par-ip-et-no-multi-homing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 - IP Virtuelles pour les serveurs virtuels par Ip et No (multi-homing)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10 - IP Virtuelles pour les serveurs virtuels par Ip et No (multi-homing)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-ajouter-trois-adresses-ip-virtuelles-en-utilisant-nmtu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a) Ajouter trois adresses IP virtuelles en utilisant nmtu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17218xx616-permettant-de-contacter-le-site-web-wwwcampagnesys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        172.18.xx.6/16 permettant de contacter le site web www.campagne.sys
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17218xx1016-permettant-de-joindre-wwwmontagnesys-et-wwwglaciersys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        172.18.xx.10/16 permettant de joindre www.montagne.sys et www.glacier.sys
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17218xx1516-permettant-de-joindre-wwwsommetsys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        172.18.xx.15/16 permettant de joindre www.sommet.sys
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#donnez-le-contenu-des-3-fichiers-de-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Donnez le contenu des 3 fichiers de configuration :
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-comment-prouver-que-votre-configuration-est-fonctionnelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b) Comment prouver que votre configuration est fonctionnelle ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-configuration-du-premier-serveur-virtuel-serveur-virtuel-par-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11 - Configuration du premier serveur virtuel : serveur virtuel par IP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11 - Configuration du premier serveur virtuel : serveur virtuel par IP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#acreez-le-premier-serveur-web-virtuel-la-racine-documentroot-de-ce-serveur-web-sera-bien-sur-le-repertoire-wwwcampagnesys-donnez-le-nom-et-le-contenu-du-fichier-de-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a)Créez le premier serveur web virtuel. La racine (DocumentRoot) de ce serveur web sera bien sûr le répertoire www.campagne.sys. Donnez le nom et le contenu du fichier de configuration.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bprouvez-que-votre-serveur-virtuel-est-a-lecoute-et-joignable-depuis-une-machine-presente-sur-le-reseau-labovm-quelle-est-votre-demarche" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b)Prouvez que votre serveur virtuel est a l’écoute et joignable depuis une machine présente sur le réseau LaboVM. Quelle est votre démarche ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tp2/tp2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 TP 2 : MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tp3/tp3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 TP 3 : Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tpa/tpa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 TP A : Gestion des processus sous Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tpb/tpb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 TP B : Communication Inter Processus I
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tpc/tpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 TP C : Communication Inter Processus II
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tpd/tpd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📜 TP D : Les Fichiers et périphériques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2-desactivation-de-selinux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 - Désactivation de SELinux
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 - Désactivation de SELinux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-a-quoi-sert-ce-composant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a) A quoi sert ce composant ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-comment-peut-on-le-desactiver-momentanement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b) Comment peut-on le désactiver momentanément ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-comment-peut-on-le-desactiver-de-facon-permanente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        c) Comment peut-on le désactiver de façon permanente ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-desactivation-momentane-du-pare-feu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3- Désactivation momentané du pare-feu.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3- Désactivation momentané du pare-feu.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-quelle-commande-vous-permet-de-desactiver-temporairement-le-firewall-le-temps-de-proceder-a-la-configuration-de-la-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a) Quelle commande vous permet de désactiver temporairement le firewall, le temps de procéder a la configuration de la machine ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-quelle-commande-vous-permet-davoir-la-certitude-que-le-firewall-est-bien-inactif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b) Quelle commande vous permet d’avoir la certitude que le firewall est bien inactif ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-installation-du-service-apache-la-configuration-reseau-avance-viendra-par-la-suite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4-Installation du service Apache (La configuration réseau avancé viendra par la suite)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4-Installation du service Apache (La configuration réseau avancé viendra par la suite)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-quels-sont-les-trois-principaux-serveurs-web-disponible-sous-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a) Quels sont les trois principaux serveurs WEB disponible sous Linux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bla-commande-dnf-ou-anciennement-yum-permet-dinstaller-les-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b)La commande dnf (ou anciennement yum) permet d’installer les packages.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-demarrage-du-service-apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        c) Démarrage du service Apache
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-quelle-commande-vous-permet-davoir-la-certitude-que-le-service-apache-est-fonctionnel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        d) Quelle commande vous permet d’avoir la certitude que le service Apache est fonctionnel ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e-quelles-informations-essentielles-vous-sont-fournies-par-cette-commande" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        e) Quelles informations essentielles vous sont fournies par cette commande ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-configuration-du-service-apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5- Configuration du service Apache
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5- Configuration du service Apache">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-ou-se-trouvent-les-fichiers-de-configuration-de-apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a) Ou se trouvent les fichiers de configuration de Apache ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-quelle-est-la-structure-de-ce-repertoire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b) Quelle est la structure de ce répertoire ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-ou-se-trouve-le-fichier-de-configuration-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        c) Ou se trouve le fichier de configuration principal ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-que-contient-du-point-de-vue-logique-le-repertoire-confd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        d) Que contient (du point de vue logique) le répertoire conf.d
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eque-contient-le-repertoire-confmodulesd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        e)Que contient le répertoire conf.modules.d
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-quest-ce-quun-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        f) Qu’est-ce qu’un module ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g-ou-sont-ils-stockes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        g) Ou sont-ils stockés ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#h-ou-sont-stockes-les-log-de-apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        h) Ou sont stockés les log de Apache ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-exploration-de-la-configuration-de-base-fichier-httpdconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6- Exploration de la configuration de base (fichier httpd.conf)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6- Exploration de la configuration de base (fichier httpd.conf)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-quest-ce-que-le-document-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a) Qu’est ce que le ‘DOCUMENT ROOT’ ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-sur-quel-repertoire-pointe-t-il" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b) Sur quel répertoire pointe-t-il ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-a-quoi-sert-la-directive-listen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        c) A quoi sert la directive ‘Listen’
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d-a-quoi-sert-la-declaration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        d) A quoi sert la déclaration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e-a-quoi-servent-les-directives-allowoverride-et-require" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        e) A quoi servent les directives ‘AllowOverride’ et ‘Require’ ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#f-a-quoi-sert-le-fichier-welcomeconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        f) A quoi sert le fichier welcome.conf ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#g-a-quoi-sert-la-commande-apachectl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        g) A quoi sert la commande apachectl ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-tests-et-installations-complementaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 - Tests et Installations complémentaires
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-executez-la-commande-yum-install-php-y-quels-packages-sont-installes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a) Exécutez la commande yum install php -y , Quels packages sont installés ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ble-service-apache-utilise-desormais-systematiquement-le-package-php-fpm-contenant-les-elements-necessaires-pour-lexecution-de-pages-web-dynamiques-que-contient-ce-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b)Le service Apache utilise désormais systématiquement le package ‘php-fpm’ contenant les éléments nécessaires pour l’exécution de pages web dynamiques. Que contient ce package ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-comment-prouver-que-le-serveur-web-est-desormais-capable-dexecuter-du-php" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        c) Comment prouver que le serveur Web est désormais capable d’exécuter du PHP ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d-quelle-version-de-php-est-installee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        d) Quelle version de php est installée ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ecomment-connaitre-la-configuration-complete-du-serveur-web-librairies-installees-avec-leurs-versions-et-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        e)Comment connaître la configuration complète du serveur web (librairies installées, avec leurs versions et configurations?)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#f-installez-les-packages-et-donnez-le-role-des-packages-suivants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        f) Installez les packages et donnez le rôle des packages suivants :
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-configuration-avancee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8- Configuration avancée
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8- Configuration avancée">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ainstallez-le-service-vsftp-et-bien-sur-verifiez-quil-est-operationnel-quavez-vous-fait-comme-commande" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a)Installez le service vsftp, et bien sûr, vérifiez qu’il est opérationnel. Qu’avez-vous fait comme commande ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-creez-un-compte-utilisateur-nomme-web-le-repertoire-de-travail-de-lutilisateur-web-contiendra-les-dossiers-hebergeant-les-differents-sites-web-geres-par-lutilisateur-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b) Créez un compte utilisateur nommé ‘web’. Le répertoire de travail de l’utilisateur ‘web’ contiendra les dossiers hébergeant les différents sites web gérés par l’utilisateur ‘web’ :
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-un-dossier-wwwcampagnesys-pour-linstance-httpd-virtuel-qui-repondra-aux-requetes-sur-une-ip-serveur-virtuel-par-ip-cf-virtualhost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        - un dossier www.campagne.sys pour l’instance httpd virtuel qui répondra aux requêtes sur une IP (serveur virtuel par IP, cf virtualhost)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-un-dossier-wwwmontagnesys-et-wwwglaciersys-pour-linstance-httpd-virtuel-qui-repondra-aux-requetes-les-deux-domaines-hebergement-mutualise-cf-web-multi-homing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        - un dossier www.montagne.sys et www.glacier.sys pour l’instance httpd virtuel qui répondra aux requêtes les deux domaines (Hébergement mutualisé, cf web multi-homing )
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-un-dossier-wwwsommetsys-pour-tester-la-mise-en-place-dun-serveur-repondant-aux-requetes-https" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        - un dossier www.sommet.sys pour tester la mise en place d’un serveur répondant aux requêtes https.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-donnez-la-liste-des-commandes-utilisees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        - Donnez la liste des commandes utilisées.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-verifiez-que-vous-pouvez-acceder-en-lectureecriture-a-tous-les-repertoires-presents-dans-le-repertoire-homeweb-en-utilisant-un-client-ftp-comme-filezilla-donnez-les-permissions-de-homeweb-ainsi-que-celles-des-dossiers-precedemment-crees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        c) Vérifiez que vous pouvez accéder en lecture/écriture a tous les répertoires présents dans le répertoire /home/web en utilisant un client ftp comme FileZilla. Donnez les permissions de /home/web ainsi que celles des dossiers précédemment créés
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-configuration-reseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9 - Configuration réseau :
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9 - Configuration réseau :">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-configurer-votre-carte-reseau-avec-lip-fixe-17218xx516-en-utilisant-nmtui-et-donnez-le-contenu-du-fichier-etcnetworkmanagersystem-connectionsens192nmconnection-ens192-correspond-au-nom-de-la-carte-reseau-elle-peut-changer-selon-le-contexte-de-deploiement-de-la-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a) Configurer votre carte réseau avec l’IP fixe 172.18.xx.5/16 en utilisant nmtui et donnez le contenu du fichier /etc/NetworkManager/system-connections/ens192.nmconnection (ens192 correspond au nom de la carte réseau, elle peut changer selon le contexte de déploiement de la VM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ba-quoi-sert-la-commande-nmcli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b)A quoi sert la commande nmcli
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-a-quoi-sert-la-commande-nmcli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        c) A quoi sert la commande nmcli
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-a-quoi-sert-le-fichier-etcresolvconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        d) A quoi sert le fichier /etc/resolv.conf ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e-que-devez-vous-faire-comme-tests-pour-verifier-la-connectivite-de-votre-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        e) Que devez-vous faire comme tests pour vérifier la connectivité de votre VM ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-votre-machine-peut-elle-joindre-wwwfreefr-quelle-commande-avez-vous-utilisez-pour-le-verifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        f) Votre machine peut-elle joindre www.free.fr ? Quelle commande avez vous utilisez pour le vérifier ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g-votre-vm-peut-elle-etre-jointe-par-lun-de-vos-collegues-si-non-pourquoi-quels-tests-avez-vous-effectues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        g) Votre VM peut-elle être jointe par l’un de vos collègues ? Si non, pourquoi ? Quels tests avez-vous effectués ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-ip-virtuelles-pour-les-serveurs-virtuels-par-ip-et-no-multi-homing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 - IP Virtuelles pour les serveurs virtuels par Ip et No (multi-homing)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10 - IP Virtuelles pour les serveurs virtuels par Ip et No (multi-homing)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-ajouter-trois-adresses-ip-virtuelles-en-utilisant-nmtu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a) Ajouter trois adresses IP virtuelles en utilisant nmtu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17218xx616-permettant-de-contacter-le-site-web-wwwcampagnesys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        172.18.xx.6/16 permettant de contacter le site web www.campagne.sys
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17218xx1016-permettant-de-joindre-wwwmontagnesys-et-wwwglaciersys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        172.18.xx.10/16 permettant de joindre www.montagne.sys et www.glacier.sys
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17218xx1516-permettant-de-joindre-wwwsommetsys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        172.18.xx.15/16 permettant de joindre www.sommet.sys
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#donnez-le-contenu-des-3-fichiers-de-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Donnez le contenu des 3 fichiers de configuration :
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-comment-prouver-que-votre-configuration-est-fonctionnelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b) Comment prouver que votre configuration est fonctionnelle ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-configuration-du-premier-serveur-virtuel-serveur-virtuel-par-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11 - Configuration du premier serveur virtuel : serveur virtuel par IP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11 - Configuration du premier serveur virtuel : serveur virtuel par IP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#acreez-le-premier-serveur-web-virtuel-la-racine-documentroot-de-ce-serveur-web-sera-bien-sur-le-repertoire-wwwcampagnesys-donnez-le-nom-et-le-contenu-du-fichier-de-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a)Créez le premier serveur web virtuel. La racine (DocumentRoot) de ce serveur web sera bien sûr le répertoire www.campagne.sys. Donnez le nom et le contenu du fichier de configuration.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bprouvez-que-votre-serveur-virtuel-est-a-lecoute-et-joignable-depuis-une-machine-presente-sur-le-reseau-labovm-quelle-est-votre-demarche" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b)Prouvez que votre serveur virtuel est a l’écoute et joignable depuis une machine présente sur le réseau LaboVM. Quelle est votre démarche ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="info">Info :</h1>
+<div class="highlight"><pre><span></span><code>-Login : user
+-mdp : User@dmin!
+</code></pre></div>
+<p>http://localhost:8181/ = campagne</p>
+<h2 id="2-desactivation-de-selinux">2 - <strong>Désactivation de SELinux</strong></h2>
+<h3 id="a-a-quoi-sert-ce-composant">a) A quoi sert ce composant ?</h3>
+<p>SELinux est un module de sécurité du noyau qui applique un contrôle d'accès obligatoire.
+C'est une couche de protection supplémentaire contre les attaques et erreur de configuration.</p>
+<h3 id="b-comment-peut-on-le-desactiver-momentanement">b) Comment peut-on le désactiver momentanément ?</h3>
+<p>1) La première façon est : 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>setenforce 0
+</code></pre></div>
+Cela permet de mettre SELinux en mode permissif (log mais ne bloque plus).
+2) La seconde façon est de modifier la variable de boot du noyau, cela va désactiver SELinux pour le démarrage suivant uniquement.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>selinux=0
+</code></pre></div></p>
+<h3 id="c-comment-peut-on-le-desactiver-de-facon-permanente">c) Comment peut-on le désactiver de façon permanente ?</h3>
+<p>Pour le modifier de façon permanente, il faut : </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo vi /etc/selinux/confi
+</code></pre></div>
+<p>Et remplacer la ligne <code>SELINUX=enforcing</code>
+Par : 
+<code>SELINUX=disabled</code></p>
+<h2 id="3-desactivation-momentane-du-pare-feu">3- <strong>Désactivation momentané du pare-feu.</strong></h2>
+<h3 id="a-quelle-commande-vous-permet-de-desactiver-temporairement-le-firewall-le-temps-de-proceder-a-la-configuration-de-la-machine">a) Quelle commande vous permet de désactiver temporairement le firewall, le temps de procéder a la configuration de la machine ?</h3>
+<p>Pour désactiver temporairement le firewall : 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo systemctl stop firewalld
+</code></pre></div></p>
+<h3 id="b-quelle-commande-vous-permet-davoir-la-certitude-que-le-firewall-est-bien-inactif">b) Quelle commande vous permet d’avoir la certitude que le firewall est bien inactif ?</h3>
+<p>Pour vérifier si le firewall est stop : 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo firewall-cmd --state
+</code></pre></div></p>
+<h2 id="4-installation-du-service-apache-la-configuration-reseau-avance-viendra-par-la-suite">4-Installation du service Apache (La configuration réseau avancé viendra par la suite)</h2>
+<h3 id="a-quels-sont-les-trois-principaux-serveurs-web-disponible-sous-linux">a) Quels sont les trois principaux serveurs WEB disponible sous Linux</h3>
+<p>Les trois principaux sont : 
+    -Apache
+    -Nginx
+    -Lighttpd</p>
+<h3 id="bla-commande-dnf-ou-anciennement-yum-permet-dinstaller-les-packages">b)La commande dnf (ou anciennement yum) permet d’installer les packages.</h3>
+<p>Quelle commande permet de retrouver le nom du package contenant le serveur Apache ?
+    - La commande est : <code>dnf search apache</code>
+Quelle commande permet d’installer le serveur Apache ?
+    - <code>sudo dnf install httpd</code></p>
+<h3 id="c-demarrage-du-service-apache">c) Démarrage du service Apache</h3>
+<p>La commande permettant de démarrer le service Apache est :
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo systemctl start httpd
+</code></pre></div></p>
+<h3 id="d-quelle-commande-vous-permet-davoir-la-certitude-que-le-service-apache-est-fonctionnel">d) Quelle commande vous permet d’avoir la certitude que le service Apache est fonctionnel ?</h3>
+<p>La commande permettant de vérifier si apache est fonctionnel :
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo systemctl status httpd
+</code></pre></div></p>
+<h3 id="e-quelles-informations-essentielles-vous-sont-fournies-par-cette-commande">e) Quelles informations essentielles vous sont fournies par cette commande ?</h3>
+<div class="highlight"><pre><span></span><code>-L&#39;état du servce (loaded)
+-Activité : active ou inactive
+-Docs man:httpd.service(8)
+</code></pre></div>
+<h2 id="5-configuration-du-service-apache">5- Configuration du service Apache</h2>
+<h3 id="a-ou-se-trouvent-les-fichiers-de-configuration-de-apache">a) Ou se trouvent les fichiers de configuration de Apache ?</h3>
+<p>Les fichiers de configurations d'Apache sont dans :*
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>/etc/httpd
+</code></pre></div></p>
+<h3 id="b-quelle-est-la-structure-de-ce-repertoire">b) Quelle est la structure de ce répertoire ?</h3>
+<p><img alt="alt text" src="../image.png" /></p>
+<h3 id="c-ou-se-trouve-le-fichier-de-configuration-principal">c) Ou se trouve le fichier de configuration principal ?</h3>
+<p>Le fichier de configuration principal se trouve :
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>/etc/httpd/conf/httpd.conf
+</code></pre></div></p>
+<h3 id="d-que-contient-du-point-de-vue-logique-le-repertoire-confd">d) Que contient (du point de vue logique) le répertoire conf.d</h3>
+<p>Le repertoire conf.d contient des fichier de configuration supplémentaire tel que la configuration d'un virtualhost : 
+<a href="https://www.debian-fr.org/t/apache2-fichiers-de-config/71907/3">référence</a></p>
+<h3 id="eque-contient-le-repertoire-confmodulesd">e)Que contient le répertoire conf.modules.d</h3>
+<p>Le repertoire conf.modules.d contient : 
+<img alt="alt text" src="../image-1.png" /></p>
+<h3 id="f-quest-ce-quun-module">f) Qu’est-ce qu’un module ?</h3>
+<p>Un module est une extension qui ajoute des fonctionnalités à Apache.</p>
+<h3 id="g-ou-sont-ils-stockes">g) Ou sont-ils stockés ?</h3>
+<p>Ils sont stockés dans : 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>/usr/lib64/httpd/modules/
+</code></pre></div></p>
+<h3 id="h-ou-sont-stockes-les-log-de-apache">h) Ou sont stockés les log de Apache ?</h3>
+<p>Les logs par défauts sont stockés dans : 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>/var/log/httpd/
+</code></pre></div></p>
+<h2 id="6-exploration-de-la-configuration-de-base-fichier-httpdconf">6- Exploration de la configuration de base (fichier httpd.conf)</h2>
+<h3 id="a-quest-ce-que-le-document-root">a) Qu’est ce que le ‘DOCUMENT ROOT’ ?</h3>
+<p>Le Document Root est le répertoire racine du serveur web</p>
+<h3 id="b-sur-quel-repertoire-pointe-t-il">b) Sur quel répertoire pointe-t-il ?</h3>
+<p>Il point sur :
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>/var/www/html
+</code></pre></div></p>
+<h2 id="c-a-quoi-sert-la-directive-listen">c) A quoi sert la directive ‘Listen’</h2>
+<p>La directive 'Listen' permet de savoir sur quel port et IP le serveur web doit écouter les requêtes.</p>
+<h2 id="d-a-quoi-sert-la-declaration">d) A quoi sert la déclaration <Directory ></h2>
+<p>La déclaration <Directory> permet de définir les règles de configurations pour un repertoire.</p>
+<h2 id="e-a-quoi-servent-les-directives-allowoverride-et-require">e) A quoi servent les directives ‘AllowOverride’ et ‘Require’ ?</h2>
+<ol>
+<li>AllowOverride<ul>
+<li><a href="https://www.yvonh.com/apache-la-directive-allowoverride/">Définit si Apache autorise les fichiers .htacces dans le repertoire à surcharger certaines directives.</a> </li>
+</ul>
+</li>
+<li>Require <ul>
+<li>Le ficheir require permet de définir qui peux accéder aux fichiers du répertoire.</li>
+</ul>
+</li>
+</ol>
+<h2 id="f-a-quoi-sert-le-fichier-welcomeconf">f) A quoi sert le fichier welcome.conf ?</h2>
+<p>Le fichier <code>welcome.conf</code> permet d'afficher la page d'accueil d'Apache. </p>
+<h2 id="g-a-quoi-sert-la-commande-apachectl">g) A quoi sert la commande apachectl ?</h2>
+<p>La commande apachectl est un outil de contrôle du serveur Apache.</p>
+<h2 id="7-tests-et-installations-complementaires">7 - Tests et Installations complémentaires</h2>
+<h2 id="a-executez-la-commande-yum-install-php-y-quels-packages-sont-installes">a) Exécutez la commande yum install php -y , Quels packages sont installés ?</h2>
+<p><img alt="alt text" src="../image-2.png" /></p>
+<h2 id="ble-service-apache-utilise-desormais-systematiquement-le-package-php-fpm-contenant-les-elements-necessaires-pour-lexecution-de-pages-web-dynamiques-que-contient-ce-package">b)Le service Apache utilise désormais systématiquement le package ‘php-fpm’ contenant les éléments nécessaires pour l’exécution de pages web dynamiques. Que contient ce package ?</h2>
+<p>Le package php-fpm contient :
+    -les binaires php.
+    -la gestion des processus pour le serveur web
+    -les ficheir de configuration php</p>
+<h2 id="c-comment-prouver-que-le-serveur-web-est-desormais-capable-dexecuter-du-php">c) Comment prouver que le serveur Web est désormais capable d’exécuter du PHP ?</h2>
+<p>Pour prouver que le serveur web est capable d'exécuter du PHP, il suffit de crée un fichier <code>info.php</code> dans le repertoire <code>/var/www/html/info.php</code></p>
+<p>et y mettre  : 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>&lt;?php
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>phpinfo()
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>?&gt;
+</code></pre></div>
+<img alt="alt text" src="../image-3.png" /></p>
+<h2 id="d-quelle-version-de-php-est-installee">d) Quelle version de php est installée ?</h2>
+<p>La version de php est :
+<img alt="alt text" src="../image-4.png" /></p>
+<h2 id="ecomment-connaitre-la-configuration-complete-du-serveur-web-librairies-installees-avec-leurs-versions-et-configurations">e)Comment connaître la configuration complète du serveur web (librairies installées, avec leurs versions et configurations?)</h2>
+<p>On peut soit regarder sur le info.php que j'ai crée sur l'adresse : http://localhost:8080/info.php
+Ou alors :
+via les commandes :
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>php -m #liste les modules
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>php -v #version de php
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>php -i #info détaillés (ressemble à phpinfo())
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>httpd -M #module Apache
+</code></pre></div></p>
+<h2 id="f-installez-les-packages-et-donnez-le-role-des-packages-suivants">f)  Installez les packages et donnez le rôle des packages suivants :</h2>
+<div class="highlight"><pre><span></span><code>-php-gd
+```sudo dnf install php-gd -y```
+Permet à php de manipuler des images
+
+-php-mysqlnd
+``` sudo dnf install php-mysqlnd -y ```
+Permet à php de se connecter aux BDD Mysql
+
+-php-pdo
+``` sudo dnf install php-pdo -y ```
+Permet de se connecter à plusieurs de types de BDD
+
+-php-mbstring
+``` sudo dnf install php-mbstring -y ```
+Permet de gérer les chaines de caractères UTF8
+</code></pre></div>
+<h2 id="8-configuration-avancee">8- Configuration avancée</h2>
+<h3 id="ainstallez-le-service-vsftp-et-bien-sur-verifiez-quil-est-operationnel-quavez-vous-fait-comme-commande">a)Installez le service vsftp, et bien sûr, vérifiez qu’il est opérationnel. Qu’avez-vous fait comme commande ?</h3>
+<p>Il faut installer vsftpd : <code>sudo dnf install vsftpd -y</code></p>
+<p>Demarrer le service et l'activer : 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>sudo systemctl start vsftpd
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>sudo systemctl enable vsftpd
+</code></pre></div></p>
+<h3 id="b-creez-un-compte-utilisateur-nomme-web-le-repertoire-de-travail-de-lutilisateur-web-contiendra-les-dossiers-hebergeant-les-differents-sites-web-geres-par-lutilisateur-web">b) Créez un compte utilisateur nommé ‘web’. Le répertoire de travail de l’utilisateur ‘web’ contiendra les dossiers hébergeant les différents sites web gérés par l’utilisateur ‘web’ :</h3>
+<p>Je vais crée l'user 'web' avec son sheel par défaut : 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>sudo useradd -m -s /bin/bash web
+</code></pre></div></p>
+<h3 id="-un-dossier-wwwcampagnesys-pour-linstance-httpd-virtuel-qui-repondra-aux-requetes-sur-une-ip-serveur-virtuel-par-ip-cf-virtualhost">- un dossier www.campagne.sys pour l’instance httpd virtuel qui répondra aux requêtes sur une IP (serveur virtuel par IP, cf virtualhost)</h3>
+<h3 id="-un-dossier-wwwmontagnesys-et-wwwglaciersys-pour-linstance-httpd-virtuel-qui-repondra-aux-requetes-les-deux-domaines-hebergement-mutualise-cf-web-multi-homing">- un dossier www.montagne.sys et www.glacier.sys pour l’instance httpd virtuel qui répondra aux requêtes les deux domaines (Hébergement mutualisé, cf web multi-homing )</h3>
+<h3 id="-un-dossier-wwwsommetsys-pour-tester-la-mise-en-place-dun-serveur-repondant-aux-requetes-https">- un dossier www.sommet.sys pour tester la mise en place d’un serveur répondant aux requêtes https.</h3>
+<h3 id="-donnez-la-liste-des-commandes-utilisees">- Donnez la liste des commandes utilisées.</h3>
+<p>Les quatres dossiers : 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a> sudo mkdir /home/web/www.campagne.sys
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>sudo mkdir /home/web/www.montagne.sys
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>sudo mkdir /home/web/www.glacier.sys
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>sudo mkdir /home/web/www.sommet.sys
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>Puis Changer le propriétaire : 
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>sudo chown -R web:web /home/web/
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>Puis définir les permissions :
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>sudo chmod -R 755 /home/web/
+</code></pre></div></p>
+<h3 id="c-verifiez-que-vous-pouvez-acceder-en-lectureecriture-a-tous-les-repertoires-presents-dans-le-repertoire-homeweb-en-utilisant-un-client-ftp-comme-filezilla-donnez-les-permissions-de-homeweb-ainsi-que-celles-des-dossiers-precedemment-crees">c) Vérifiez que vous pouvez accéder en lecture/écriture a tous les répertoires présents dans le répertoire /home/web en utilisant un client ftp comme FileZilla. Donnez les permissions de /home/web ainsi que celles des dossiers précédemment créés</h3>
+<p><img alt="alt text" src="../image-5.png" /></p>
+<h2 id="9-configuration-reseau">9 -  Configuration réseau :</h2>
+<h3 id="a-configurer-votre-carte-reseau-avec-lip-fixe-17218xx516-en-utilisant-nmtui-et-donnez-le-contenu-du-fichier-etcnetworkmanagersystem-connectionsens192nmconnection-ens192-correspond-au-nom-de-la-carte-reseau-elle-peut-changer-selon-le-contexte-de-deploiement-de-la-vm">a) Configurer votre carte réseau avec l’IP fixe 172.18.xx.5/16 en utilisant nmtui et donnez le contenu du fichier /etc/NetworkManager/system-connections/ens192.nmconnection (ens192 correspond au nom de la carte réseau, elle peut changer selon le contexte de déploiement de la VM)</h3>
+<p>Je vais détailler étape par étape : 
+Lancer l'outil nmtui :
+<code>sudo nmtui</code>
+nmtui = Text User Interface for NetworkManager
+<img alt="alt text" src="../image-6.png" /></p>
+<ol>
+<li>Selectionner Edit a connection </li>
+<li>Choisir carte réseau</li>
+<li><img alt="alt text" src="../image-7.png" />
+Je peux ping 172.18.220.6 et www.sommet.sys
+<img alt="alt text" src="../image-25.png" /></li>
+</ol>
+<h3 id="ba-quoi-sert-la-commande-nmcli">b)A quoi sert la commande nmcli</h3>
+<p>La commande <code>nmcli</code> est l'interface en ligne de commande NetworkManager
+    - Elle permet de crée modifier supprimer des connexions réseaux
+    - Afficher l'état des interfaces
+    - Configurer des Ip statiques et dynamiques </p>
+<h3 id="c-a-quoi-sert-la-commande-nmcli">c) A quoi sert la commande nmcli</h3>
+<p>Le service NetworkManager est un service système qui gère les connexions réseau sur Linux.
+    -La détection automatique des interfaces
+    -La configuration Ip 
+    -La gestion de DNS</p>
+<h3 id="d-a-quoi-sert-le-fichier-etcresolvconf">d) A quoi sert le fichier /etc/resolv.conf ?</h3>
+<p>Ce fichier contient les serveurs DNS </p>
+<h3 id="e-que-devez-vous-faire-comme-tests-pour-verifier-la-connectivite-de-votre-vm">e) Que devez-vous faire comme tests pour vérifier la connectivité de votre VM ?</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>ping 172.18.255.254
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>ping 8.8.8.8
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>curl http://www.free.fr
+</code></pre></div>
+<h3 id="f-votre-machine-peut-elle-joindre-wwwfreefr-quelle-commande-avez-vous-utilisez-pour-le-verifier">f)  Votre machine peut-elle joindre www.free.fr ? Quelle commande avez vous utilisez pour le vérifier ?</h3>
+<p>Oui  : </p>
+<p><img alt="alt text" src="../image-8.png" /></p>
+<h3 id="g-votre-vm-peut-elle-etre-jointe-par-lun-de-vos-collegues-si-non-pourquoi-quels-tests-avez-vous-effectues">g)  Votre VM peut-elle être jointe par l’un de vos collègues ? Si non, pourquoi ? Quels tests avez-vous effectués ?</h3>
+<p>Je ne sais pas je n'ai pas pu tester.</p>
+<h2 id="10-ip-virtuelles-pour-les-serveurs-virtuels-par-ip-et-no-multi-homing">10 - IP Virtuelles pour les serveurs virtuels par Ip et No (multi-homing)</h2>
+<p>Pour www.campagne.sys : IP = 172.18.220.6:8086 
+http://www.campagne.sys:8086
+<img alt="alt text" src="../image-26.png" /></p>
+<p>Pour www.sommet.sys : IP = 172.18.220.15:8087
+http://www.sommet.sys:8087
+<img alt="alt text" src="../image-27.png" /></p>
+<p>Pour www.montagne.sys : IP = 172.18.220.10:8081
+http://www.montagne.sys:8081
+<img alt="alt text" src="../image-28.png" /></p>
+<p>Pour www.glacier.sys : IP = 172.18.220.10:8081
+http://www.glacier.sys:8081
+<img alt="alt text" src="../image-29.png" /></p>
+<h3 id="a-ajouter-trois-adresses-ip-virtuelles-en-utilisant-nmtu">a) Ajouter trois adresses IP virtuelles en utilisant nmtu</h3>
+<h3 id="17218xx616-permettant-de-contacter-le-site-web-wwwcampagnesys">172.18.xx.6/16 permettant de contacter le site web www.campagne.sys</h3>
+<p><img alt="alt text" src="../image-10.png" /></p>
+<h3 id="17218xx1016-permettant-de-joindre-wwwmontagnesys-et-wwwglaciersys">172.18.xx.10/16 permettant de joindre www.montagne.sys et www.glacier.sys</h3>
+<p><img alt="alt text" src="../image-11.png" /></p>
+<h3 id="17218xx1516-permettant-de-joindre-wwwsommetsys">172.18.xx.15/16 permettant de joindre www.sommet.sys</h3>
+<p><img alt="alt text" src="../image-9.png" /></p>
+<h3 id="donnez-le-contenu-des-3-fichiers-de-configuration">Donnez le contenu des 3 fichiers de configuration :</h3>
+<p>Config 1 : campagne (/etc/NetworkManager/system-connections/campagne.nmconnection)
+<img alt="alt text" src="../image-12.png" /></p>
+<p>Config 2 : montagne (/etc/NetworkManager/system-connections/montagne.nmconnection)
+<img alt="alt text" src="../image-13.png" /></p>
+<p>Config 3 : sommet (/etc/NetworkManager/system-connections/sommet.nmconnection)
+<img alt="alt text" src="../image-14.png" /></p>
+<h3 id="b-comment-prouver-que-votre-configuration-est-fonctionnelle">b) Comment prouver que votre configuration est fonctionnelle ?</h3>
+<p><img alt="alt text" src="../image-15.png" /></p>
+<h2 id="11-configuration-du-premier-serveur-virtuel-serveur-virtuel-par-ip">11 - Configuration du premier serveur virtuel : serveur virtuel par IP</h2>
+<h3 id="acreez-le-premier-serveur-web-virtuel-la-racine-documentroot-de-ce-serveur-web-sera-bien-sur-le-repertoire-wwwcampagnesys-donnez-le-nom-et-le-contenu-du-fichier-de-configuration">a)Créez le premier serveur web virtuel. La racine (DocumentRoot) de ce serveur web sera bien sûr le répertoire www.campagne.sys. Donnez le nom et le contenu du fichier de configuration.</h3>
+<p>Voici le virtual host : 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>/etc/httpd/conf.d/campagne.conf
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>&lt;VirtualHost 172.18.220.6:80&gt;
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>    ServerName www.campagne.sys
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>    DocumentRoot /home/web/www.campagne.sys
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>    &lt;Directory /home/web/www.campagne.sys&gt;
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>        Options Indexes FollowSymLinks
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>        AllowOverride None
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>        Require all granted
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>    &lt;/Directory&gt;
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>    ErrorLog /var/log/httpd/campagne_error.log
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>    CustomLog /var/log/httpd/campagne_access.log combined
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>&lt;/VirtualHost&gt;
+</code></pre></div></p>
+<h3 id="bprouvez-que-votre-serveur-virtuel-est-a-lecoute-et-joignable-depuis-une-machine-presente-sur-le-reseau-labovm-quelle-est-votre-demarche">b)Prouvez que votre serveur virtuel est a l’écoute et joignable depuis une machine présente sur le réseau LaboVM. Quelle est votre démarche ?</h3>
+<p>Dans un premier temps, il faut regarder le status de httpd 
+<img alt="alt text" src="../image-16.png" />
+On le voit "active"</p>
+<p>Puis regarder si le port 80 est ouvert sur 172.18.220.6 : 
+<img alt="alt text" src="../image-17.png" />
+On le voit sur "*".</p>
+<h1 id="rajout-important">RAJOUT Important !!!</h1>
+<p>J'ai eu un problème j'ai donc rajouté un tunnel : 
+<img alt="alt text" src="../image-18.png" />
+Sur le port 81 j'ai mis campagne
+<img alt="alt text" src="../image-19.png" />
+Dans son virtual host : <code>/etc/httpd/conf.d/campagne.conf</code>
+Et dans la conf httpd : 
+<img alt="alt text" src="../image-20.png" />
+Dans le fichier <code>/etc/httpd/conf/httpd.conf</code></p>
+<p>Mais je ne sais pas si c'est bon.</p>
+<h3 id="c-testez-votre-configuration-en-utilisant-votre-navigateur-depuis-votre-windows-ou-depuis-une-autre-vm-pouvez-vous-prouver-que-cest-bien-le-serveur-virtuel-que-vous-venez-de-configurer-qui-a-repondu-comment">c) Testez votre configuration en utilisant votre navigateur (depuis votre Windows ou depuis une autre VM). Pouvez-vous prouver que c’est bien le serveur virtuel que vous venez de configurer qui a répondu ? Comment ?</h3>
+<p>Voici la page campagne : 
+<img alt="alt text" src="../image-21.png" /></p>
+<p>Pour prouver il y a le texte simplement qui est différents de celui du port 8080.</p>
+<h3 id="d-votre-serveur-vous-a-retourne-un-message-access-denied-cest-probablement-normal-pourtant-vous-avez-prouve-quil-etait-a-lecoute">d) Votre serveur vous a retourné un message « access denied » ? C’est probablement normal, pourtant vous avez prouvé qu’il était a l’écoute :</h3>
+<div class="highlight"><pre><span></span><code>-Le &quot;Allow&quot; permet de controler qui peut acceder au repertoire
+-Les permissions sont : ![alt text](image-22.png)
+- Il faut mettre cela en directive Apache en guise de solution propre :
+</code></pre></div>
+<p><code>&lt;Directory /home/web/www.campagne.sys&gt;
+    Require all granted
+&lt;/Directory&gt;</code></p>
+<h3 id="e-deployez-lapplication-web-phpsysinfo-httpphpsysinfogithubiophpsysinfo-dans-le-repertoire-wwwcampagnesys-et-fournissez-une-copie-decran-de-la-page-daccueil-de-cette-application">e) Déployez l’application web phpsysinfo (http://phpsysinfo.github.io/phpsysinfo/) dans le répertoire www.campagne.sys et fournissez une copie d’écran de la page d’accueil de cette application.</h3>
+<p>Voici l'application web phpsysinfo sur l'address http://localhost:8181
+<img alt="alt text" src="../image-23.png" /></p>
+<h3 id="ebis-testez-lurl-http17218xx5-avez-vous-obtenu-une-reponse-si-oui-pourquoi">ebis) Testez l’URL http://172.18.xx.5 Avez vous obtenu une réponse ? Si Oui pourquoi ?</h3>
+<p>Je n'obtiens rien sur http://172.18.220.5/
+J'ai crée un port 8085 pour loger la page. 
+<img alt="alt text" src="../image-24.png" /></p>
+<h2 id="12-serveur-virtuel-par-nom">12 - Serveur virtuel par nom</h2>
+<h3 id="a-creer-les-deux-serveurs-web-virtuels-repondant-pour-le-domaine-wwwmontagnesys-et-wwwglaciersys-sur-lip-17218xx10-et-donnez-le-contenu-dudes-fichiers-de-configuration">a) Créer les deux serveurs web virtuels répondant pour le domaine www.montagne.sys et www.glacier.sys sur l’IP 172.18.xx.10 et donnez le contenu du/des fichier·s de configuration.</h3>
+<p>Dans le fichier de conf : <code>/etc/httpd/conf.d/montagne_glacier.conf</code></p>
+<p>J'ai mis : </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>&lt;VirtualHost 172.18.220.10:80&gt;
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>    ServerName www.montagne.sys
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    DocumentRoot /home/web/www.montagne.sys
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>    &lt;Directory /home/web/www.montagne.sys&gt;
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>        Require all granted
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>    &lt;/Directory&gt;
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>&lt;/VirtualHost&gt;
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>&lt;VirtualHost 172.18.220.10:80&gt;
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>    ServerName www.glacier.sys
+<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>    DocumentRoot /home/web/www.glacier.sys
+<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>
+<a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>    &lt;Directory /home/web/www.glacier.sys&gt;
+<a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>        Require all granted
+<a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a>    &lt;/Directory&gt;
+<a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a>&lt;/VirtualHost&gt;
+</code></pre></div>
+<h3 id="b-avez-vous-vu-la-note-concernant-la-configuration-des-dns-donnez-en-un-resume">b) Avez vous vu la note concernant la configuration des DNS ? Donnez-en un résumé</h3>
+<p>La documentation indique que pour que les serveurs virtuels par nom fonctionnent :</p>
+<div class="highlight"><pre><span></span><code>- Le client doit envoyer le nom de domaine dans l’en-tête HTTP (Host:)
+
+- Cela nécessite que le nom de domaine soit résolu (via DNS ou fichier hosts)
+
+Sinon, Apache ne peut pas savoir quel vhost servir
+</code></pre></div>
+<h3 id="c-mettez-en-place-une-solution-permettant-de-garantir-que-le-serveur-virtuel-hebergeant-wwwmontagnesys-est-bien-le-bon-a-repondre-et-procedez-aux-tests-justifiez-votre-demarche">c) Mettez en place une solution permettant de garantir que le serveur virtuel hébergeant www.montagne.sys est bien le bon a répondre et procédez aux tests. Justifiez votre démarche.</h3>
+<p>C'est bien www.montagne.sys qui répond : 
+<img alt="alt text" src="../image-30.png" />
+et le fichier de conf : </p>
+<p><img alt="alt text" src="../image-31.png" /></p>
+<p>Sur le tunnel j'ai fais en sorte que l'IP de montagne soit relié au port 8081 donc le lien sera http://www.montagne.sys:8081
+J'ai aussi modifié mon /etc/hosts pour mettre www.montagne.sys reconnu.</p>
+<h3 id="d-testez-lurl-http17218xx5-quel-serveur-virtuel-a-repondu-est-ce-le-comportement-attendu-justifiez-votre-reponse">d) Testez l’URL http://172.18.xx.5 . Quel serveur virtuel a répondu ? Est-ce le comportement attendu ? Justifiez votre réponse.</h3>
+<p>Le serveur qui a répondu est le premier VirtualHost défini dans la configuration Apache sur l’IP 172.18.220.5
+Car apache utilise le premier défini si il n'y aucune autre justification</p>
+<h3 id="e-avez-vous-vu-la-note-intitulee-le-serveur-principal-disparait-quelle-information-essentielle-contient-elle">e) Avez vous vu la note intitulée « Le serveur principal disparaît » ? Quelle information essentielle contient-elle ?</h3>
+<p>Cette note indique qu’une fois des VirtualHosts configurés, Apache ne sert plus automatiquement le serveur principal. Il faut définir un VirtualHost par défaut si l’on souhaite qu’il réponde en l’absence de correspondance explicite.</p>
+<h2 id="13-serveur-virtuel-https-et-ssl">13 - Serveur virtuel, HTTPS et SSL</h2>
+<h3 id="a-avez-vous-verifie-que-le-module-necessaire-a-lutilisation-du-https-etait-installe-et-charge-quel-est-le-nom-du-module-quavez-vous-fait-pour-verifier-quil-etait-charge-en-memoire-par-apache">a)  Avez vous vérifié que le module nécessaire a l’utilisation du HTTPS était installé et chargé ? Quel est le nom du module ? qu’avez vous fait pour vérifier qu’il était chargé en mémoire par Apache ?</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>sudo dnf install mod_ssl
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>apachectl -M | grep ssl
+</code></pre></div>
+<h3 id="b">b)</h3>
+<h3 id="-a-quoi-sert-loption-x509">- A quoi sert l’option « -x509 »</h3>
+<p>génère un certificat auto-signé (non issu d’une autorité)</p>
+<h3 id="-a-quoi-sert-le-parametre-rsa1024-de-loption-newkey-ce-parametre-est-il-pertinent-a-lheure-actuelle">- A quoi sert le paramètre « rsa:1024 » de l’option « -newkey » ? Ce paramétre est-il pertinent a l’heure actuelle ?</h3>
+<p>génère une clé RSA de 1024 bits </p>
+<h3 id="-quels-sont-les-fichiers-generes-que-contiennent-ils">- Quels sont les fichiers générés ? Que contiennent-ils ?</h3>
+<p>serveur.cle : clé privée (chiffrement)
+certificat.pem : certificat public (identité du serveur)</p>
+<h3 id="c-mettez-en-place-le-serveur-virtuel-wwwsommetsys-il-devra-repondre-sur-les-ports-80-et-443-et-donnez-le-contenu-du-fichier-de-configuration">c) Mettez en place le serveur virtuel www.sommet.sys Il devra répondre sur les ports 80 et 443, et donnez le contenu du fichier de configuration.</h3>
+<p><img alt="alt text" src="../image-32.png" />
+Sur le port 80 :
+<img alt="alt text" src="../image-34.png" />
+Sur le port 443 :
+<img alt="alt text" src="../image-33.png" /></p>
+<h3 id="d-quel-message-avez-vous-obtenu-lors-de-vos-tests-avec-votre-navigateur-pourquoi-avez-vous-obtenu-ce-message">d) Quel message avez-vous obtenu lors de vos tests avec votre navigateur ? Pourquoi avez vous obtenu ce message ?</h3>
+<p>Message : Avertissement de sécurité (certificat non reconnu) 
+Cause : Le certificat est auto-signé, donc non validé par une autorité de certification.</p>
+<h3 id="econnaissez-vous-le-site-lets-encrypt-httpsletsencryptorgfr-quel-est-son-role-comment-peut-il-vous-aidez-pour-le-probleme-precedent">e)Connaissez vous le site Let’s Encrypt (https://letsencrypt.org/fr/). Quel est son rôle ? Comment peut-il vous aidez pour le problème précédent ?</h3>
+<p>Rôle : Fournit des certificats SSL gratuits et reconnus 
+Utilité : Permet d’éviter les avertissements de sécurité en générant des certificats valides via certbot.</p>
+<h2 id="14-restriction-de-lacces-utilisateur">14 - Restriction de l’accès utilisateur</h2>
+<h3 id="a-quels-sont-les-modes-dauthentification-possibles">a)  Quels sont les modes d’authentification possibles?</h3>
+<ol>
+<li>Basic</li>
+<li>Digest</li>
+<li>LDAP</li>
+<li>Kerberos</li>
+<li>OAuth/OpenID</li>
+<li>Fichier .htpasswd</li>
+</ol>
+<h3 id="b-quest-ce-quun-fournisseur-dacces-dans-ce-contexte">b) Qu’est ce qu’un fournisseur d’accès dans ce contexte?</h3>
+<p>Définition : Source des identifiants utilisés pour l’authentification (ex. fichier .htpasswd, base LDAP…)</p>
+<h3 id="c-pour-le-site-wwwcampagnesys-creer-un-repertoire-secure-et-verifier-que-vous-pouvez-bien-acceder-au-contenu-de-ce-repertoire-quels-tests-avez-vous-effectues">c) Pour le site www.campagne.sys, créer un répertoire « secure » et vérifier que vous pouvez bien accéder au contenu de ce répertoire. Quels tests avez-vous effectués ?</h3>
+<p><img alt="alt text" src="../image-35.png" /></p>
+<h3 id="d-changer-la-configuration-de-ce-serveur-virtuel-pour-restreindre-lacces-au-repertoire-secure-vous-utiliserez-une-authentification-basic-avec-un-provider-file-donnez-le-contenu-du-fichier-de-configuration">d) Changer la configuration de ce serveur virtuel pour restreindre l’accès au répertoire « secure ». Vous utiliserez une authentification « basic » avec un « provider file». Donnez le contenu du fichier de configuration.</h3>
+<h3 id="e-creez-un-utilisateur-apache-avec-les-identifiants-leon123aze-et-verifiez-quil-a-bien-acces-au-repertoire-secure-la-commande-htpasswd-vous-sera-necessaire-quels-tests-avez-vous-effectues-quelles-commandes-avez-vous-utilisees">e) Créez un utilisateur « Apache » avec les identifiants « leon/123+aze » et vérifiez qu’il a bien accès au répertoire « secure » . La commande htpasswd vous sera nécessaire. Quels tests avez-vous effectués ? Quelles commandes avez-vous utilisées ?</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>sudo htpasswd -c /etc/httpd/.htpasswd leon
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>mdp 123+aze
+</code></pre></div>
+<h3 id="f-quelle-demarche-vous-a-permis-de-verifier-que-le-compte-leon-avec-le-mot-de-passe-123aze-a-bien-acces-au-repertoire-secure">f) Quelle démarche vous a permis de vérifier que le compte « leon » avec le mot de passe « 123+aze » a bien accès au répertoire « secure » ?</h3>
+<p><img alt="alt text" src="../image-36.png" />
+On entre dans /secure
+<img alt="alt text" src="../image-37.png" /></p>
+<p>Après connexion  : 
+<img alt="alt text" src="../image-38.png" /></p>
+<h2 id="15-fichier-htaccess">15 - Fichier .htaccess</h2>
+<h3 id="a-quest-ce-quune-reecriture-durl-quel-module-est-necessaire-pour-faire-une-reecriture-durl">a) Qu’est ce qu’une réécriture d’URL ? Quel module est nécessaire pour faire une réécriture d’URL ?</h3>
+<p>Une réécriture d’URL consiste à transformer une URL demandée par le client (ex. /produit/123) en une autre URL interne (ex. /produit.php?id=123) sans que l’utilisateur le voie.
+Le module nécessaire est : <code>mod_rewrite</code></p>
+<h3 id="b-quest-ce-quun-framework">b) Qu’est ce qu’un Framework ?</h3>
+<p>Un Framework est un ensemble structuré de bibliothèques, outils et conventions qui facilite le développement d’applications.</p>
+<h3 id="c-a-quoi-sert-la-directive-allowoverride">c) A quoi sert la directive AllowOverride ?</h3>
+<p>lle définit quelles directives peuvent être surchargées via un fichier .htaccess dans un répertoire.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>Si AllowOverride est à None, Apache ignore tous les .htaccess.
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>Si elle est à All ou un sous-ensemble, Apache autorise certaines directives dans les .htaccess.
+</code></pre></div></p>
+<h3 id="d-quels-sont-les-6-parametres-pris-en-compte-par-la-directive-allowoverride">d) Quels sont les 6 paramètres pris en compte par la directive AllowOverride ?</h3>
+<ol>
+<li>AuthConfig : Authentification (ex. AuthType, Require)</li>
+<li>FileInfo : Manipulation de fichiers (ex. AddType, RewriteRule)</li>
+<li>Indexes : Listing de répertoires (Options +Indexes)</li>
+<li>Limit : Contrôle d’accès (Allow, Deny, Require)</li>
+<li>Options : Options Apache (Options FollowSymLinks)</li>
+<li>None : Aucun override autorisé</li>
+</ol>
+<h3 id="e-lequel-des-parametres-permet-dautoriser-lusage-dune-reecriture-durl-a-partir-dun-fichier-htaccess">e) Lequel des paramètres permet d’autoriser l’usage d’une réécriture d’URL a partir d’un fichier .htaccess ?</h3>
+<p>FileInfo</p>
+<p>C’est ce paramètre qui permet d’utiliser des directives comme RewriteEngine et RewriteRule dans un .htaccess.</p>
+<h3 id="f-creez-un-repertoire-private-avec-un-fichier-htaccess-donnez-le-contenu-du-fichier-htaccess">f) Créez un répertoire « private » avec un fichier .htaccess. Donnez le contenu du fichier .htaccess</h3>
+<p>Dans le fichier /home/web/www.campagne.sys/private/.htacces : 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>AuthType Basic
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>AuthName &quot;Zone privée&quot;
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>AuthUserFile /etc/httpd/.htpasswd
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>Require user gaston
+</code></pre></div></p>
+<h3 id="g-dans-le-fichier-htaccess-precedent-mettez-en-place-les-directives-necessaires-pour-autoriser-uniquement-lutilisateur-apache-gaston123aze-a-acceder-au-repertoire-quelle-est-votre-demarche-quelles-commandes-avez-vous-utilisees">g) Dans le fichier .htaccess précédent, mettez en place les directives nécessaires pour autoriser uniquement l’utilisateur « Apache gaston/123+aze » a accéder au répertoire. Quelle est votre démarche ? Quelles commandes avez-vous utilisées ?</h3>
+<p>Il faut crée un .htpasswd : 
+<code>sudo htpasswd -c /etc/httpd/.htpasswd gaston</code>
+gaston à comme mdp : 123+aze</p>
+<p>Dans le .conf de www.campagne.sys on <code>AllowOverride All</code></p>
+<p>On test : http://www.campagne.sys:8086/private
+<img alt="alt text" src="../image-39.png" />
+Cela marche : 
+<img alt="alt text" src="../image-40.png" /></p>
+<h2 id="16-personnalisation-de-pages-derreurs">16 - Personnalisation de pages d'erreurs</h2>
+<h3 id="a-utilisez-la-directive-errordocument-pour-afficher-une-jolie-page-derreur-404-cette-url-devrait-vous-inspirer-httpswwwleptidigitalfrwebmarketingpages-erreur-404-8896-quels-fichiers-avez-vous-modifies-donnez-les-modifications">a) Utilisez la directive « ErrorDocument » pour afficher une jolie page d’erreur 404. Cette URL devrait vous inspirer : https://www.leptidigital.fr/webmarketing/pages-erreur-404-8896/ . Quels fichiers avez-vous modifiés ? Donnez les modifications.</h3>
+<p>Dans le fichier <code>campagne.conf</code> il faut  rajouter : 
+<img alt="alt text" src="../image-41.png" /></p>
+<p>J'ai ensuite fais un redirection appellé 404.html avec un page d'erreur faites par l'IA basique avec un retour à l'accueil: </p>
+<p><img alt="alt text" src="../image-42.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.instant", "navigation.expand", "content.code.copy", "navigation.top", "search.suggest", "search.highlight"], "search": "../../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
